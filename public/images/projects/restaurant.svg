@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#0c0a14"/>
+  <rect x="0" y="0" width="640" height="52" fill="#12101c"/>
+  <text x="32" y="34" fill="#f2f2fa" font-family="system-ui" font-size="15" font-weight="700">FoodDash POS</text>
+  <rect x="520" y="16" width="100" height="28" rx="6" fill="#34d399" opacity="0.2"/>
+  <text x="570" y="34" text-anchor="middle" fill="#34d399" font-family="system-ui" font-size="11" font-weight="600">Live</text>
+  <rect x="24" y="68" width="300" height="272" rx="10" fill="#161325"/>
+  <text x="40" y="92" fill="#9b9bb8" font-family="system-ui" font-size="10">KITCHEN QUEUE</text>
+  <rect x="40" y="104" width="268" height="64" rx="8" fill="#1e1a2e" stroke="#e94560" stroke-opacity="0.4"/>
+  <text x="56" y="128" fill="#f2f2fa" font-family="system-ui" font-size="13" font-weight="600">#104 — Table 4</text>
+  <text x="56" y="148" fill="#9b9bb8" font-family="system-ui" font-size="11">2x Burger, 1x Fries, 1x Coke</text>
+  <text x="280" y="128" text-anchor="end" fill="#fbbf24" font-family="system-ui" font-size="10">Preparing</text>
+  <rect x="40" y="180" width="268" height="64" rx="8" fill="#1e1a2e"/>
+  <text x="56" y="204" fill="#f2f2fa" font-family="system-ui" font-size="13" font-weight="600">#105 — Table 7</text>
+  <text x="56" y="224" fill="#9b9bb8" font-family="system-ui" font-size="11">1x Pasta, 1x Salad</text>
+  <text x="280" y="204" text-anchor="end" fill="#34d399" font-family="system-ui" font-size="10">Ready</text>
+  <rect x="40" y="256" width="268" height="64" rx="8" fill="#1e1a2e"/>
+  <text x="56" y="280" fill="#f2f2fa" font-family="system-ui" font-size="13" font-weight="600">#106 — Takeaway</text>
+  <text x="56" y="300" fill="#9b9bb8" font-family="system-ui" font-size="11">3x Pizza Slice</text>
+  <rect x="340" y="68" width="276" height="140" rx="10" fill="#161325"/>
+  <text x="356" y="92" fill="#9b9bb8" font-family="system-ui" font-size="10">MENU</text>
+  <rect x="356" y="104" width="72" height="72" rx="8" fill="#1e1a2e"/>
+  <text x="392" y="150" text-anchor="middle" fill="#e94560" font-size="24">🍔</text>
+  <rect x="440" y="104" width="72" height="72" rx="8" fill="#1e1a2e"/>
+  <text x="476" y="150" text-anchor="middle" fill="#e94560" font-size="24">🍕</text>
+  <rect x="524" y="104" width="72" height="72" rx="8" fill="#1e1a2e"/>
+  <text x="560" y="150" text-anchor="middle" fill="#e94560" font-size="24">🥤</text>
+  <rect x="340" y="220" width="276" height="120" rx="10" fill="#161325"/>
+  <text x="356" y="244" fill="#9b9bb8" font-family="system-ui" font-size="10">CURRENT ORDER</text>
+  <text x="356" y="276" fill="#f2f2fa" font-family="system-ui" font-size="22" font-weight="700">$42.50</text>
+  <rect x="356" y="292" width="244" height="36" rx="6" fill="#7c6cff"/>
+  <text x="478" y="316" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="13" font-weight="600">Process Payment</text>
+</svg>

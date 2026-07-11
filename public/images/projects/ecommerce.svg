@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#0c0a14"/>
+  <rect x="0" y="0" width="640" height="52" fill="#12101c"/>
+  <circle cx="28" cy="26" r="6" fill="#f85149"/><circle cx="48" cy="26" r="6" fill="#d29922"/><circle cx="68" cy="26" r="6" fill="#3fb950"/>
+  <text x="96" y="34" fill="#f2f2fa" font-family="system-ui" font-size="15" font-weight="600">ShopNova</text>
+  <rect x="24" y="68" width="592" height="40" rx="8" fill="#161325"/>
+  <text x="48" y="94" fill="#9b9bb8" font-family="system-ui" font-size="12">Search products...</text>
+  <rect x="24" y="120" width="140" height="220" rx="8" fill="#161325"/>
+  <text x="40" y="144" fill="#9b9bb8" font-family="system-ui" font-size="10">CATEGORIES</text>
+  <rect x="40" y="156" width="108" height="24" rx="4" fill="#7c6cff" opacity="0.2"/>
+  <text x="52" y="172" fill="#7c6cff" font-family="system-ui" font-size="11">Electronics</text>
+  <rect x="40" y="188" width="108" height="24" rx="4" fill="#1e1a2e"/>
+  <text x="52" y="204" fill="#9b9bb8" font-family="system-ui" font-size="11">Fashion</text>
+  <rect x="40" y="220" width="108" height="24" rx="4" fill="#1e1a2e"/>
+  <text x="52" y="236" fill="#9b9bb8" font-family="system-ui" font-size="11">Home</text>
+  <rect x="180" y="120" width="130" height="160" rx="8" fill="#161325"/>
+  <rect x="192" y="132" width="106" height="80" rx="6" fill="#21262d"/>
+  <rect x="192" y="220" width="70" height="6" rx="2" fill="#f2f2fa" opacity="0.8"/>
+  <rect x="192" y="232" width="50" height="5" rx="2" fill="#9b9bb8"/>
+  <text x="192" y="258" fill="#34d399" font-family="system-ui" font-size="14" font-weight="700">$89.99</text>
+  <rect x="320" y="120" width="130" height="160" rx="8" fill="#161325"/>
+  <rect x="332" y="132" width="106" height="80" rx="6" fill="#21262d"/>
+  <rect x="332" y="220" width="70" height="6" rx="2" fill="#f2f2fa" opacity="0.8"/>
+  <text x="332" y="258" fill="#34d399" font-family="system-ui" font-size="14" font-weight="700">$124.00</text>
+  <rect x="460" y="120" width="156" height="220" rx="8" fill="#161325"/>
+  <text x="476" y="144" fill="#9b9bb8" font-family="system-ui" font-size="10">CART</text>
+  <rect x="476" y="156" width="124" height="48" rx="6" fill="#1e1a2e"/>
+  <rect x="488" y="168" width="40" height="24" rx="4" fill="#303050"/>
+  <rect x="536" y="172" width="50" height="5" rx="2" fill="#9b9bb8"/>
+  <text x="476" y="230" fill="#f2f2fa" font-family="system-ui" font-size="12">Total: $213.99</text>
+  <rect x="476" y="248" width="124" height="36" rx="6" fill="#7c6cff"/>
+  <text x="538" y="272" text-anchor="middle" fill="#fff" font-family="system-ui" font-size="12" font-weight="600">Checkout</text>
+  <rect x="180" y="292" width="270" height="48" rx="8" fill="#161325"/>
+  <rect x="196" y="306" width="80" height="20" rx="4" fill="#7c6cff" opacity="0.3"/>
+  <rect x="288" y="306" width="80" height="20" rx="4" fill="#38bdf8" opacity="0.2"/>
+  <rect x="380" y="306" width="60" height="20" rx="4" fill="#34d399" opacity="0.2"/>
+</svg>

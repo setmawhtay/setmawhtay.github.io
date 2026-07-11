@@ -1,0 +1,27 @@
+/* Global mouse-follow parallax — uses --mouse-x / --mouse-y from useGlobalMouse */
+
+.mouse-parallax {
+  transition: transform 0.35s var(--ease-out);
+}
+
+.mouse-parallax--slow {
+  transform: translate(
+    calc((var(--mouse-x, 0.5) - 0.5) * -14px),
+    calc((var(--mouse-y, 0.5) - 0.5) * -10px)
+  );
+}
+
+.mouse-parallax--soft {
+  transform: translate(
+    calc((var(--mouse-x, 0.5) - 0.5) * 10px),
+    calc((var(--mouse-y, 0.5) - 0.5) * 8px)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mouse-parallax,
+  .mouse-parallax--slow,
+  .mouse-parallax--soft {
+    transform: none !important;
+  }
+}

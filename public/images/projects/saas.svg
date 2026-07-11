@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#0c0a14"/>
+  <rect x="0" y="0" width="56" height="360" fill="#12101c"/>
+  <rect x="16" y="24" width="24" height="24" rx="6" fill="#7c6cff" opacity="0.6"/>
+  <rect x="16" y="64" width="24" height="24" rx="6" fill="#1e1a2e"/>
+  <rect x="16" y="104" width="24" height="24" rx="6" fill="#1e1a2e"/>
+  <rect x="16" y="144" width="24" height="24" rx="6" fill="#1e1a2e"/>
+  <rect x="72" y="0" width="568" height="56" fill="#12101c"/>
+  <text x="96" y="36" fill="#f2f2fa" font-family="system-ui" font-size="15" font-weight="600">Admin Console</text>
+  <rect x="72" y="72" width="160" height="88" rx="8" fill="#161325"/>
+  <text x="88" y="100" fill="#9b9bb8" font-family="system-ui" font-size="10">USERS</text>
+  <text x="88" y="136" fill="#f2f2fa" font-family="system-ui" font-size="24" font-weight="700">2,847</text>
+  <rect x="248" y="72" width="160" height="88" rx="8" fill="#161325"/>
+  <text x="264" y="100" fill="#9b9bb8" font-family="system-ui" font-size="10">REVENUE</text>
+  <text x="264" y="136" fill="#34d399" font-family="system-ui" font-size="24" font-weight="700">$48K</text>
+  <rect x="424" y="72" width="192" height="88" rx="8" fill="#161325"/>
+  <text x="440" y="100" fill="#9b9bb8" font-family="system-ui" font-size="10">UPTIME</text>
+  <text x="440" y="136" fill="#38bdf8" font-family="system-ui" font-size="24" font-weight="700">99.9%</text>
+  <rect x="72" y="176" width="360" height="168" rx="8" fill="#161325"/>
+  <polyline points="96,300 140,260 190,280 240,220 290,240 340,200 390,210" stroke="#7c6cff" stroke-width="2" fill="none"/>
+  <rect x="448" y="176" width="168" height="168" rx="8" fill="#161325"/>
+  <rect x="464" y="200" width="136" height="8" rx="2" fill="#303050"/>
+  <rect x="464" y="200" width="100" height="8" rx="2" fill="#7c6cff" opacity="0.7"/>
+  <rect x="464" y="224" width="136" height="8" rx="2" fill="#303050"/>
+  <rect x="464" y="224" width="80" height="8" rx="2" fill="#38bdf8" opacity="0.6"/>
+  <rect x="464" y="248" width="136" height="8" rx="2" fill="#303050"/>
+  <rect x="464" y="248" width="120" height="8" rx="2" fill="#34d399" opacity="0.5"/>
+</svg>
