@@ -35,3 +35,5 @@ npm-debug.log*
 
 *.mdc
 *.md
+!README.md
+!LICENSE
