@@ -25,7 +25,7 @@ const { revealRef, isVisible, isArmed } = useScrollReveal()
         <span class="section-eyebrow">Tech Stack</span>
         <h2 id="skills-heading" class="section-heading">Technologies I work with</h2>
         <p class="section-tagline">
-          Full stack toolkit spanning backend, frontend, mobile, and cloud.
+          Full stack toolkit spanning backend, frontend, databases, and cloud.
         </p>
       </header>
 
@@ -39,9 +39,10 @@ const { revealRef, isVisible, isArmed } = useScrollReveal()
 
         <div class="skills__tech-grid">
         <div
-          v-for="tech in techStack"
+          v-for="(tech, index) in techStack"
           :key="tech.id"
           class="tech-pill"
+          :style="{ '--i': index }"
         >
           <TechIcon :id="tech.id" />
           <div class="tech-pill__info">
@@ -155,10 +156,60 @@ const { revealRef, isVisible, isArmed } = useScrollReveal()
     box-shadow var(--duration-base) var(--ease-out);
 }
 
+.tech-pill {
+  position: relative;
+  overflow: hidden;
+}
+
+/* light sweep on hover */
+.tech-pill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
 .tech-pill:hover {
-  transform: translateY(-3px);
-  border-color: rgba(124, 108, 255, 0.35);
-  box-shadow: var(--shadow-sm);
+  transform: translateY(-4px);
+  border-color: rgba(124, 108, 255, 0.45);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), 0 0 18px rgba(124, 108, 255, 0.15);
+}
+
+.tech-pill:hover::after {
+  transform: translateX(120%);
+  transition: transform 700ms var(--ease-out);
+}
+
+.tech-pill :deep(svg) {
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.tech-pill:hover :deep(svg) {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+/* pills pop in one by one once the section is revealed */
+.skills__stack.reveal--visible .tech-pill {
+  animation: tech-pill-in 560ms var(--ease-out) calc(200ms + var(--i, 0) * 60ms) backwards;
+}
+
+@keyframes tech-pill-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.92);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills__stack.reveal--visible .tech-pill {
+    animation: none;
+  }
+
+  .tech-pill:hover :deep(svg) {
+    transform: none;
+  }
 }
 
 .tech-pill__info {
@@ -226,7 +277,34 @@ const { revealRef, isVisible, isArmed } = useScrollReveal()
   height: 100%;
   background: linear-gradient(90deg, var(--color-accent), var(--color-cyan));
   border-radius: var(--radius-full);
-  transition: width 1s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+  transition: width 1.2s var(--ease-out) 300ms;
+}
+
+.expertise-card__fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-100%);
+  animation: bar-shimmer 2.8s ease-in-out 1.6s infinite;
+}
+
+@keyframes bar-shimmer {
+  0% { transform: translateX(-100%); }
+  60%, 100% { transform: translateX(100%); }
+}
+
+.expertise-card {
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.expertise-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.3);
 }
 
 @media (max-width: 900px) {

@@ -41,13 +41,6 @@ defineProps({
       <ellipse cx="24" cy="24" rx="18" ry="7" stroke="#61DAFB" stroke-width="1.5" transform="rotate(120 24 24)" class="tech-icon__react-orbit" />
     </template>
 
-    <!-- React Native -->
-    <template v-else-if="id === 'react-native'">
-      <circle cx="24" cy="24" r="4" fill="#61DAFB" />
-      <ellipse cx="24" cy="24" rx="14" ry="6" stroke="#61DAFB" stroke-width="1.5" />
-      <ellipse cx="24" cy="24" rx="14" ry="6" stroke="#61DAFB" stroke-width="1.5" transform="rotate(60 24 24)" />
-      <rect x="18" y="36" width="12" height="4" rx="2" fill="#61DAFB" opacity="0.5" />
-    </template>
 
     <!-- Node.js -->
     <template v-else-if="id === 'nodejs'">

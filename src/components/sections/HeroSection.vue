@@ -40,8 +40,8 @@ const { parallaxStyle, onMouseMove, onMouseLeave } = useMouseParallax(heroVisual
           </span>
         </h1>
         <p class="hero__subtitle">
-          I build scalable web and mobile applications — from PHP &amp; Laravel backends
-          to Vue, React, and React Native frontends, deployed on AWS with production-ready quality.
+          I build scalable web applications — from PHP &amp; Laravel backends
+          to Vue and React frontends, deployed on AWS with production-ready quality.
         </p>
 
         <div class="hero__actions">
@@ -227,14 +227,31 @@ const { parallaxStyle, onMouseMove, onMouseLeave } = useMouseParallax(heroVisual
 }
 
 .hero__cta--primary {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--color-accent), #6357e8);
   color: #fff;
   box-shadow: 0 8px 28px rgba(124, 108, 255, 0.35);
 }
 
+.hero__cta--primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, 0.35) 50%, transparent 65%);
+  transform: translateX(-120%);
+  animation: cta-shine 4.5s ease-in-out 1.5s infinite;
+}
+
+@keyframes cta-shine {
+  0% { transform: translateX(-120%); }
+  30%, 100% { transform: translateX(120%); }
+}
+
 .hero__cta--primary:hover {
   box-shadow: var(--shadow-glow);
   color: #fff;
+  transform: translateY(-2px);
 }
 
 .hero__cta--secondary {

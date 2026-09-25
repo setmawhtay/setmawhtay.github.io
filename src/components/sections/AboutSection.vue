@@ -6,7 +6,7 @@ const { revealRef, isVisible, isArmed } = useScrollReveal()
 
 const highlights = [
   'Backend APIs with PHP, Laravel & Node.js',
-  'Frontend & mobile with Vue, React & React Native',
+  'Modern frontends with Vue, React & JavaScript',
   'Cloud deployment, Docker & AWS infrastructure',
 ]
 </script>
@@ -34,19 +34,19 @@ const highlights = [
             <span class="section-eyebrow">About Me</span>
             <h2 id="about-heading" class="section-heading">Full stack developer who ships end-to-end</h2>
             <p class="section-tagline">
-              Passionate about building complete products — database to UI, web to mobile, local to cloud.
+              Passionate about building complete products — database to UI, landing page to dashboard, local to cloud.
             </p>
           </header>
 
           <div class="about__text">
             <p>
               I'm a <strong>full stack developer</strong> experienced across the entire product lifecycle.
-              I design RESTful APIs, craft responsive interfaces, build cross-platform mobile apps,
+              I design RESTful APIs, craft responsive interfaces, build productivity tools,
               and deploy services that scale on <strong>AWS</strong>.
             </p>
             <p>
               Whether it's a Laravel backend, a Vue admin dashboard, a React consumer app,
-              or a React Native mobile build — I focus on clean architecture, maintainable code,
+              or a high-converting landing page — I focus on clean architecture, maintainable code,
               and reliable delivery.
             </p>
           </div>

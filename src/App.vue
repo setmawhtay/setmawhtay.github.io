@@ -1,6 +1,8 @@
 <script setup>
 import { useGlobalMouse } from './composables/useGlobalMouse.js'
 import AppHeader from './components/layout/AppHeader.vue'
+import AppFooter from './components/layout/AppFooter.vue'
+import ScrollProgress from './components/ui/ScrollProgress.vue'
 import ScrollToTop from './components/ui/ScrollToTop.vue'
 import MouseAmbient from './components/ui/MouseAmbient.vue'
 import HeroSection from './components/sections/HeroSection.vue'
@@ -13,6 +15,7 @@ useGlobalMouse()
 </script>
 
 <template>
+  <ScrollProgress />
   <MouseAmbient />
   <AppHeader />
   <main id="main-content">
@@ -22,5 +25,6 @@ useGlobalMouse()
     <ProjectsSection />
     <ContactSection />
   </main>
+  <AppFooter />
   <ScrollToTop />
 </template>
