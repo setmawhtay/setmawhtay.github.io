@@ -18,7 +18,7 @@ export const projects = [
     description:
       'Bilingual (English / Myanmar) company website for an EC consulting, system offshore, and ISO consulting firm — built with a pure PHP backend and React frontend, featuring a hero slider, service pages, achievements, and recruitment.',
     tags: ['PHP', 'React', 'MySQL'],
-    image: '/images/projects/capital-knowledge.webp',
+    image: '/images/projects/capital-knowledge.svg',
     url: 'https://capital-knowledge.com/',
   },
   {
@@ -28,7 +28,7 @@ export const projects = [
     description:
       'Team task and helpdesk platform on Laravel and Vue 3 with drag-and-drop Kanban boards, filters, per-project access, documentation, activity logs, roles & permissions, API clients, and Redis-backed caching and queues.',
     tags: ['Laravel', 'Vue 3', 'Redis', 'MySQL'],
-    image: '/images/projects/ckmy-docs.webp',
+    image: '/images/projects/ckmy-docs.svg',
     url: 'https://docs.ckmy.eu.cc/',
   },
   {
