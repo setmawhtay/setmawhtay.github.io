@@ -90,7 +90,7 @@ function onCardMove(e) {
             </ul>
 
             <span v-if="project.url" class="project-card__visit" aria-hidden="true">
-              {{ project.url.replace(/^https?:\/\//, '') }}
+              {{ project.url.replace(/^https?:\/\//, '').replace(/\/$/, '') }}
               <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M5 11L11 5M6 5h5v5" stroke-linecap="round" stroke-linejoin="round" />
               </svg>

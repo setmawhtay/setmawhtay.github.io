@@ -13,23 +13,23 @@
 export const projects = [
   {
     id: 'capital-knowledge',
-    title: 'Capital Knowledge',
-    category: 'Landing Page',
+    title: 'Capital Knowledge Myanmar',
+    category: 'Corporate Landing Page',
     description:
-      'Conversion-focused marketing landing page with a clear value proposition, responsive sections, smooth animations, and SEO-friendly markup.',
-    tags: ['Landing Page', 'Responsive', 'SEO', 'JavaScript'],
-    image: '/images/projects/capital-knowledge.svg',
-    url: 'https://capital-knowledge.com',
+      'Bilingual (English / Myanmar) company website for an EC consulting, system offshore, and ISO consulting firm — hero slider, service pages, achievements, and recruitment.',
+    tags: ['Landing Page', 'EN / MM i18n', 'Responsive', 'SEO'],
+    image: '/images/projects/capital-knowledge.webp',
+    url: 'https://capital-knowledge.com/',
   },
   {
-    id: 'ckmy-tasks',
-    title: 'CKMY Task Manager',
-    category: 'Productivity App',
+    id: 'ckmy-docs',
+    title: 'CKMY Docs',
+    category: 'Task Management System',
     description:
-      'Task management workspace for planning and tracking work — boards, priorities, due dates, and team progress in one place.',
-    tags: ['Full Stack', 'Task Boards', 'Dashboard', 'Auth'],
-    image: '/images/projects/task-manager.svg',
-    url: 'https://docs.ckmy.eu.cc',
+      'Team task and helpdesk platform with drag-and-drop Kanban boards, filters, per-project access, documentation, activity logs, roles & permissions, API clients, and dark mode.',
+    tags: ['Kanban Board', 'RBAC', 'REST API', 'EN / MM i18n'],
+    image: '/images/projects/ckmy-docs.webp',
+    url: 'https://docs.ckmy.eu.cc/',
   },
   {
     id: 'ecommerce',
