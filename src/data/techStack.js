@@ -14,6 +14,7 @@ export const techStack = [
   { id: 'react', name: 'React', category: 'Frontend' },
   { id: 'nodejs', name: 'Node.js', category: 'Backend' },
   { id: 'mysql', name: 'MySQL', category: 'Database' },
+  { id: 'redis', name: 'Redis', category: 'Cache & Queue' },
   { id: 'aws', name: 'AWS', category: 'Cloud' },
   { id: 'docker', name: 'Docker', category: 'DevOps' },
   { id: 'git', name: 'Git', category: 'Tools' },
