@@ -1,183 +1,416 @@
 <script setup>
+import { useReducedMotion } from '../../composables/useReducedMotion.js'
+
+const { prefersReduced } = useReducedMotion()
+
+/** Where every badge's data trail lands (top edge of the main monitor). */
+const target = { x: 305, y: 152 }
+
 const floatingTech = [
-  { label: 'PHP', x: 88, y: 18, color: '#8892bf', width: 72, delay: 0 },
-  { label: 'Laravel', x: 192, y: 6, color: '#ff6b5a', width: 78, delay: 0.4 },
-  { label: 'Vue', x: 302, y: 12, color: '#42b883', width: 68, delay: 0.8 },
-  { label: 'React', x: 408, y: 26, color: '#61dafb', width: 72, delay: 1.2 },
-  { label: 'React Native', x: 48, y: 72, color: '#00d8ff', width: 104, delay: 1.6 },
-  { label: 'AWS', x: 462, y: 88, color: '#ff9900', width: 68, delay: 2 },
-  { label: 'Docker', x: 368, y: 102, color: '#2496ed', width: 78, delay: 2.4 },
+  { label: 'PHP', x: 20, y: 70, color: '#8892bf', width: 60 },
+  { label: 'Laravel', x: 92, y: 24, color: '#ff6b5a', width: 80 },
+  { label: 'Vue', x: 196, y: 6, color: '#42b883', width: 60 },
+  { label: 'React', x: 280, y: 30, color: '#61dafb', width: 70 },
+  { label: 'Node.js', x: 372, y: 6, color: '#6cc24a', width: 80 },
+  { label: 'MySQL', x: 470, y: 28, color: '#00a3c4', width: 74 },
+  { label: 'AWS', x: 524, y: 88, color: '#ff9900', width: 58 },
+  { label: 'Docker', x: 422, y: 100, color: '#2496ed', width: 76 },
+].map((tech, i) => {
+  const sx = tech.x + tech.width / 2
+  const sy = tech.y + 30
+  const cx = (sx + target.x) / 2 + (sx < target.x ? -18 : 18)
+  const cy = Math.max(sy, target.y) - 8
+  return {
+    ...tech,
+    delay: i * 0.35,
+    trail: `M${sx} ${sy} Q${cx} ${cy} ${target.x} ${target.y}`,
+  }
+})
+
+const codeLines = [
+  { indent: 0, parts: [['#c792ea', 22], ['#82aaff', 38], ['#89ddff', 10]] },
+  { indent: 1, parts: [['#c792ea', 18], ['#f2f2fa', 26], ['#89ddff', 8], ['#c3e88d', 34]] },
+  { indent: 1, parts: [['#c792ea', 22], ['#ffcb6b', 30], ['#89ddff', 12]] },
+  { indent: 2, parts: [['#82aaff', 28], ['#f2f2fa', 20], ['#f78c6c', 14]] },
+  { indent: 2, parts: [['#c3e88d', 44], ['#89ddff', 8]] },
+  { indent: 1, parts: [['#89ddff', 8]] },
+  { indent: 1, parts: [['#c792ea', 26], ['#82aaff', 32], ['#89ddff', 10]] },
+  { indent: 0, parts: [['#89ddff', 8]] },
+].map((line, i) => {
+  let x = 0
+  const parts = line.parts.map(([color, width]) => {
+    const part = { color, width, x }
+    x += width + 4
+    return part
+  })
+  return { ...line, parts, y: i * 10, width: x }
+})
+
+const LINE_STAGGER = 0.55
+const TYPE_LOOP = 8
+
+/** Cursor hops to the end of each line as it finishes typing. */
+const cursorPath = {
+  values: codeLines
+    .map((line) => `${234 + line.indent * 10 + line.width - 2} ${174 + line.y}`)
+    .join(';'),
+  keyTimes: codeLines
+    .map((_, i) => ((i * LINE_STAGGER) / TYPE_LOOP).toFixed(4))
+    .join(';'),
+}
+
+const stars = [
+  [44, 132, 1.2, 0], [70, 146, 0.9, 0.6], [98, 128, 1.1, 1.2], [122, 150, 0.8, 1.8],
+  [56, 170, 0.9, 0.9], [110, 176, 1, 2.2], [132, 132, 0.8, 0.3], [84, 162, 0.7, 1.5],
 ]
 </script>
 
 <template>
   <div class="dev-workspace" aria-hidden="true">
-    <svg class="dev-workspace__svg" viewBox="0 0 600 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="dev-workspace__svg" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="dw-desk-top" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stop-color="#3d7fd6" />
-          <stop offset="100%" stop-color="#2b6bc4" />
+          <stop offset="0%" stop-color="#2a2550" />
+          <stop offset="100%" stop-color="#211d42" />
         </linearGradient>
         <linearGradient id="dw-desk-front" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#2459a8" />
-          <stop offset="100%" stop-color="#1a4588" />
-        </linearGradient>
-        <linearGradient id="dw-chair" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#5ec8f2" />
-          <stop offset="100%" stop-color="#38bdf8" />
+          <stop offset="0%" stop-color="#1a1636" />
+          <stop offset="100%" stop-color="#120f26" />
         </linearGradient>
         <linearGradient id="dw-screen" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#1a2848" />
-          <stop offset="100%" stop-color="#0d1224" />
+          <stop offset="0%" stop-color="#141a33" />
+          <stop offset="100%" stop-color="#0b0f20" />
         </linearGradient>
-        <filter id="dw-shadow" x="-15%" y="-15%" width="130%" height="140%">
-          <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.35" />
+        <linearGradient id="dw-sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1b1446" />
+          <stop offset="100%" stop-color="#2b3a7a" />
+        </linearGradient>
+        <linearGradient id="dw-hoodie" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5b4df0" />
+          <stop offset="100%" stop-color="#3b2fc4" />
+        </linearGradient>
+        <linearGradient id="dw-chair" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2d2a4a" />
+          <stop offset="100%" stop-color="#1c1a30" />
+        </linearGradient>
+        <linearGradient id="dw-lamp-light" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffd98a" stop-opacity="0.45" />
+          <stop offset="100%" stop-color="#ffd98a" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient id="dw-progress" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#7c6cff" />
+          <stop offset="100%" stop-color="#38bdf8" />
+        </linearGradient>
+        <radialGradient id="dw-screen-glow" cx="0.5" cy="0.5" r="0.5">
+          <stop offset="0%" stop-color="#7c6cff" stop-opacity="0.5" />
+          <stop offset="60%" stop-color="#38bdf8" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+        </radialGradient>
+        <radialGradient id="dw-moon" cx="0.4" cy="0.4" r="0.6">
+          <stop offset="0%" stop-color="#fff8dc" />
+          <stop offset="100%" stop-color="#f5d77a" />
+        </radialGradient>
+        <clipPath id="dw-window-clip">
+          <rect x="30" y="118" width="116" height="84" rx="6" />
+        </clipPath>
+        <filter id="dw-shadow" x="-20%" y="-20%" width="140%" height="160%">
+          <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#000" flood-opacity="0.4" />
+        </filter>
+        <filter id="dw-soft-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" />
         </filter>
       </defs>
 
-      <!-- badge trails -->
-      <g opacity="0.4" stroke-width="2.5" stroke-linecap="round">
-        <path d="M124 42 C170 78, 220 118, 260 148" stroke="#8892bf" stroke-dasharray="8 10" class="dw-trail dw-trail--1" />
-        <path d="M230 26 C270 68, 300 108, 318 142" stroke="#42b883" stroke-dasharray="8 10" class="dw-trail dw-trail--2" />
-        <path d="M360 48 C350 88, 335 122, 318 152" stroke="#61dafb" stroke-dasharray="8 10" class="dw-trail dw-trail--3" />
-        <path d="M100 96 C150 118, 210 138, 250 158" stroke="#00d8ff" stroke-dasharray="8 10" class="dw-trail dw-trail--4" />
-        <path d="M496 108 C440 128, 390 148, 350 162" stroke="#ff9900" stroke-dasharray="8 10" class="dw-trail dw-trail--5" />
-        <path d="M407 122 C370 142, 330 158, 300 168" stroke="#2496ed" stroke-dasharray="8 10" class="dw-trail dw-trail--6" />
+      <!-- ===== room ===== -->
+      <ellipse cx="305" cy="392" rx="270" ry="8" fill="#000" opacity="0.35" />
+
+      <!-- window with night sky -->
+      <g class="dw-window">
+        <rect x="26" y="114" width="124" height="92" rx="8" fill="#1a1636" />
+        <g clip-path="url(#dw-window-clip)">
+          <rect x="30" y="118" width="116" height="84" fill="url(#dw-sky)" />
+          <circle cx="120" cy="140" r="11" fill="url(#dw-moon)" class="dw-moon" />
+          <circle
+            v-for="([x, y, r, d], i) in stars"
+            :key="i"
+            :cx="x" :cy="y" :r="r"
+            fill="#fff"
+            class="dw-star"
+            :style="{ animationDelay: `${d}s` }"
+          />
+          <path d="M30 188 L52 176 L70 184 L92 170 L116 182 L146 172 L146 202 L30 202 Z" fill="#141033" />
+          <g fill="#ffd98a" opacity="0.7">
+            <rect x="58" y="188" width="3" height="3" class="dw-city-light" />
+            <rect x="96" y="182" width="3" height="3" class="dw-city-light dw-city-light--2" />
+            <rect x="124" y="186" width="3" height="3" class="dw-city-light dw-city-light--3" />
+          </g>
+        </g>
+        <path d="M88 118 V202 M30 160 H146" stroke="#1a1636" stroke-width="4" />
       </g>
 
-      <!-- floating badges -->
+      <!-- ===== data trails from badges into the monitor ===== -->
+      <g stroke-width="1.6" stroke-linecap="round" fill="none">
+        <path
+          v-for="tech in floatingTech"
+          :id="`dw-trail-${tech.label}`"
+          :key="`trail-${tech.label}`"
+          :d="tech.trail"
+          :stroke="tech.color"
+          stroke-opacity="0.35"
+          stroke-dasharray="4 8"
+          class="dw-trail"
+        />
+      </g>
+
+      <!-- packets flowing along trails (SMIL, skipped for reduced motion) -->
+      <g v-if="!prefersReduced">
+        <circle
+          v-for="tech in floatingTech"
+          :key="`packet-${tech.label}`"
+          r="2.6"
+          :fill="tech.color"
+          opacity="0"
+        >
+          <animateMotion
+            dur="3.2s"
+            repeatCount="indefinite"
+            :begin="`${tech.delay}s`"
+            keyPoints="0;1"
+            keyTimes="0;1"
+            calcMode="spline"
+            keySplines="0.4 0 0.2 1"
+          >
+            <mpath :href="`#dw-trail-${tech.label}`" />
+          </animateMotion>
+          <animate
+            attributeName="opacity"
+            values="0;1;1;0"
+            keyTimes="0;0.15;0.8;1"
+            dur="3.2s"
+            repeatCount="indefinite"
+            :begin="`${tech.delay}s`"
+          />
+        </circle>
+      </g>
+
+      <!-- ===== floating tech badges ===== -->
       <g v-for="(tech, i) in floatingTech" :key="tech.label" filter="url(#dw-shadow)">
         <g
           class="dw-badge"
-          :class="`dw-badge--${i + 1}`"
-          :style="{ animationDelay: `${tech.delay}s` }"
+          :style="{ animationDelay: `${-tech.delay * 2}s`, animationDuration: `${4.2 + (i % 4) * 0.45}s` }"
         >
           <rect
-            :x="tech.x" :y="tech.y" :width="tech.width" height="32" rx="4"
-            :fill="tech.color" fill-opacity="0.22"
-            :stroke="tech.color" stroke-opacity="0.7" stroke-width="1.5"
+            :x="tech.x" :y="tech.y" :width="tech.width" height="28" rx="14"
+            fill="#15122a" fill-opacity="0.92"
+            :stroke="tech.color" stroke-opacity="0.65" stroke-width="1.4"
+          />
+          <circle
+            :cx="tech.x + 14" :cy="tech.y + 14" r="4"
+            :fill="tech.color"
+            class="dw-badge-dot"
+            :style="{ animationDelay: `${tech.delay}s` }"
           />
           <text
-            :x="tech.x + tech.width / 2" :y="tech.y + 20"
-            text-anchor="middle" :fill="tech.color"
+            :x="tech.x + 24" :y="tech.y + 18.5"
+            :fill="tech.color"
             font-family="IBM Plex Mono, monospace"
-            :font-size="tech.label.length > 10 ? 10 : 12"
-            font-weight="700"
+            font-size="11"
+            font-weight="600"
           >{{ tech.label }}</text>
         </g>
       </g>
 
-      <!-- chair -->
-      <g class="dw-chair">
-        <!-- wheels / base -->
-        <ellipse cx="168" cy="292" rx="42" ry="8" fill="#1a3058" opacity="0.6" />
-        <rect x="162" y="268" width="12" height="24" rx="3" fill="#2a4a78" />
-        <!-- seat -->
-        <ellipse cx="168" cy="258" rx="46" ry="14" fill="url(#dw-chair)" />
-        <!-- backrest -->
-        <path
-          d="M128 258 Q118 200 128 148 Q148 130 168 132 Q188 130 208 148 Q218 200 208 258 Z"
-          fill="url(#dw-chair)" stroke="#7dd3fc" stroke-opacity="0.4" stroke-width="1.5"
-        />
-        <path d="M138 200 Q168 188 198 200" stroke="#bae6fd" stroke-opacity="0.35" fill="none" stroke-width="2" />
+      <!-- ===== desk ===== -->
+      <g class="dw-desk">
+        <path d="M70 290 L540 290 L572 318 L38 318 Z" fill="url(#dw-desk-top)" />
+        <path d="M70 290 L540 290" stroke="#7c6cff" stroke-opacity="0.35" />
+        <path d="M38 318 L572 318 L572 336 L38 336 Z" fill="url(#dw-desk-front)" />
+        <path d="M38 318 L572 318" stroke="#a5a0ff" stroke-opacity="0.25" />
+        <path d="M60 336 L66 392 L78 392 L74 336 Z" fill="#120f26" />
+        <path d="M536 336 L532 392 L544 392 L550 336 Z" fill="#120f26" />
       </g>
 
-      <!-- developer (back 3/4 view, glasses) -->
-      <g class="dw-dev">
-        <!-- legs -->
-        <path d="M148 258 L142 290 L156 290 L160 258 Z" fill="#6b7280" />
-        <path d="M176 258 L182 290 L168 290 L164 258 Z" fill="#5b6370" />
-        <!-- torso -->
-        <path d="M138 218 Q168 205 198 218 L204 258 L132 258 Z" fill="#3b5bdb" />
-        <path d="M148 228 L128 248 L140 254 L156 234 Z" fill="#364fc7" />
-        <path d="M188 228 L208 244 L196 252 L180 234 Z" fill="#364fc7" />
-        <!-- neck -->
-        <rect x="160" y="198" width="16" height="22" rx="4" fill="#e8a598" />
-        <!-- head + hair -->
-        <ellipse cx="168" cy="182" rx="22" ry="24" fill="#2d1f14" />
-        <ellipse cx="168" cy="186" rx="18" ry="20" fill="#e8a598" />
-        <!-- glasses (side/back view) -->
-        <g class="dw-glasses">
-          <rect x="148" y="178" width="14" height="10" rx="2" fill="none" stroke="#1e293b" stroke-width="2.5" />
-          <rect x="174" y="178" width="14" height="10" rx="2" fill="none" stroke="#1e293b" stroke-width="2.5" />
-          <path d="M162 183 L170 183" stroke="#1e293b" stroke-width="2" />
-          <path d="M146 182 L140 180" stroke="#1e293b" stroke-width="2" stroke-linecap="round" />
+      <!-- screen light spilling onto desk -->
+      <ellipse cx="320" cy="302" rx="150" ry="18" fill="url(#dw-screen-glow)" class="dw-desk-glow" />
+
+      <!-- ===== desk lamp ===== -->
+      <g class="dw-lamp">
+        <path d="M118 222 L92 292 L176 292 L146 222 Z" fill="url(#dw-lamp-light)" class="dw-lamp-light" />
+        <ellipse cx="84" cy="292" rx="18" ry="4" fill="#3a3560" />
+        <path d="M84 290 L76 244 L118 214" stroke="#4a4478" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="76" cy="244" r="4" fill="#5b5596" />
+        <path d="M108 206 L140 214 L150 228 L112 222 Z" fill="#f5d77a" />
+        <ellipse cx="131" cy="225" rx="12" ry="3" fill="#fff4c2" class="dw-bulb" />
+      </g>
+
+      <!-- ===== main monitor: code editor ===== -->
+      <g class="dw-monitor" filter="url(#dw-shadow)">
+        <rect x="208" y="148" width="194" height="122" rx="8" fill="#0d0b1c" stroke="#3a3560" stroke-width="2" />
+        <rect x="215" y="155" width="180" height="108" rx="4" fill="url(#dw-screen)" />
+        <!-- title bar -->
+        <rect x="215" y="155" width="180" height="12" rx="4" fill="#1a1f3d" />
+        <circle cx="223" cy="161" r="2" fill="#ff5f57" />
+        <circle cx="230" cy="161" r="2" fill="#febc2e" />
+        <circle cx="237" cy="161" r="2" fill="#28c840" />
+        <rect x="248" y="157" width="40" height="10" rx="2" fill="#141a33" />
+        <rect x="254" y="161" width="26" height="2.5" rx="1" fill="#82aaff" opacity="0.8" />
+        <!-- gutter -->
+        <g fill="#3f4775">
+          <rect v-for="(line, i) in codeLines" :key="`ln-${i}`" x="220" :y="175 + line.y" width="6" height="3" rx="1" />
         </g>
-        <!-- arms toward keyboard -->
-        <path d="M140 234 Q200 228 230 222" stroke="#364fc7" stroke-width="14" stroke-linecap="round" fill="none" />
-        <path d="M196 234 Q240 230 268 224" stroke="#364fc7" stroke-width="12" stroke-linecap="round" fill="none" />
+        <!-- typed code -->
+        <g transform="translate(234 175)">
+          <g
+            v-for="(line, i) in codeLines"
+            :key="`code-${i}`"
+            class="dw-code-line"
+            :style="{ animationDelay: `${i * LINE_STAGGER}s`, animationDuration: `${TYPE_LOOP}s` }"
+          >
+            <rect
+              v-for="(part, j) in line.parts"
+              :key="j"
+              :x="line.indent * 10 + part.x"
+              :y="line.y"
+              :width="part.width"
+              height="4"
+              rx="2"
+              :fill="part.color"
+              opacity="0.9"
+            />
+          </g>
+        </g>
+        <rect
+          width="3" height="6" fill="#38bdf8" class="dw-cursor"
+          :transform="`translate(${cursorPath.values.split(';').at(-1)})`"
+        >
+          <animateTransform
+            v-if="!prefersReduced"
+            attributeName="transform"
+            type="translate"
+            calcMode="discrete"
+            :values="cursorPath.values"
+            :keyTimes="cursorPath.keyTimes"
+            :dur="`${TYPE_LOOP}s`"
+            repeatCount="indefinite"
+          />
+        </rect>
+        <!-- status bar -->
+        <rect x="215" y="257" width="180" height="6" fill="#7c6cff" opacity="0.5" />
+        <!-- stand -->
+        <path d="M296 270 L292 286 L318 286 L314 270 Z" fill="#2a2550" />
+        <ellipse cx="305" cy="288" rx="32" ry="4.5" fill="#3a3560" />
+      </g>
+
+      <!-- ===== side monitor: build terminal ===== -->
+      <g class="dw-side-monitor" filter="url(#dw-shadow)">
+        <rect x="412" y="176" width="100" height="94" rx="7" fill="#0d0b1c" stroke="#3a3560" stroke-width="2" />
+        <rect x="418" y="182" width="88" height="82" rx="3" fill="#07091a" />
+        <g font-family="IBM Plex Mono, monospace" font-size="7">
+          <text x="423" y="194" fill="#6ee7b7">$</text>
+          <text x="430" y="194" fill="#c7c9e0">npm run build</text>
+          <text x="423" y="206" fill="#7d86b8">vite building…</text>
+        </g>
+        <rect x="423" y="212" width="78" height="5" rx="2.5" fill="#1a1f3d" />
+        <rect x="423" y="212" width="78" height="5" rx="2.5" fill="url(#dw-progress)" class="dw-progress" />
+        <g font-family="IBM Plex Mono, monospace" font-size="7">
+          <text x="423" y="230" fill="#34d399" class="dw-term-line dw-term-line--1">✓ built in 1.2s</text>
+          <text x="423" y="242" fill="#34d399" class="dw-term-line dw-term-line--2">✓ tests passed</text>
+          <text x="423" y="254" fill="#38bdf8" class="dw-term-line dw-term-line--3">↑ deployed</text>
+        </g>
+        <path d="M456 270 L454 286 L466 286 L464 270 Z" fill="#2a2550" />
+        <ellipse cx="460" cy="288" rx="20" ry="3.5" fill="#3a3560" />
+      </g>
+
+      <!-- floating code glyphs -->
+      <g font-family="IBM Plex Mono, monospace" font-weight="600">
+        <text x="184" y="176" font-size="12" fill="#a5a0ff" class="dw-glyph">&lt;/&gt;</text>
+        <text x="404" y="160" font-size="11" fill="#38bdf8" class="dw-glyph dw-glyph--2">{ }</text>
+        <text x="520" y="190" font-size="12" fill="#f5d77a" class="dw-glyph dw-glyph--3">;</text>
+      </g>
+
+      <!-- ===== desk items ===== -->
+      <!-- keyboard -->
+      <g class="dw-keyboard">
+        <path d="M238 294 L344 294 L350 306 L232 306 Z" fill="#2d2a4a" stroke="#4a4478" stroke-width="1" />
+        <g fill="#6b64a8">
+          <rect
+            v-for="k in 12"
+            :key="`k-${k}`"
+            :x="236 + k * 8.4" y="297" width="6" height="2.6" rx="0.6"
+            class="dw-key"
+            :style="{ animationDelay: `${(k * 0.37) % 1.2}s` }"
+          />
+          <rect
+            v-for="k in 11"
+            :key="`k2-${k}`"
+            :x="238 + k * 8.4" y="301" width="6" height="2.6" rx="0.6"
+            class="dw-key"
+            :style="{ animationDelay: `${(k * 0.53) % 1.2}s` }"
+          />
+        </g>
+      </g>
+      <!-- mouse -->
+      <ellipse cx="366" cy="302" rx="7" ry="4.5" fill="#2d2a4a" stroke="#4a4478" />
+      <!-- coffee -->
+      <g class="dw-coffee">
+        <rect x="380" y="278" width="18" height="18" rx="3" fill="#f5f3ff" />
+        <path d="M398 282 Q406 282 406 287 Q406 292 398 292" stroke="#f5f3ff" stroke-width="2.5" fill="none" />
+        <rect x="380" y="283" width="18" height="4" fill="#7c6cff" opacity="0.8" />
+        <path d="M385 272 Q382 266 385 260" stroke="#c7c9e0" stroke-width="1.5" stroke-linecap="round" class="dw-steam" />
+        <path d="M392 272 Q395 265 392 258" stroke="#c7c9e0" stroke-width="1.5" stroke-linecap="round" class="dw-steam dw-steam--2" />
+      </g>
+      <!-- plant -->
+      <g class="dw-plant">
+        <g class="dw-leaves">
+          <path d="M531 274 Q516 250 522 232 Q534 250 531 274 Z" fill="#34d399" />
+          <path d="M533 274 Q540 244 556 236 Q552 260 533 274 Z" fill="#10b981" />
+          <path d="M532 274 Q528 246 536 222 Q544 246 532 274 Z" fill="#6ee7b7" />
+          <path d="M530 274 Q506 262 504 248 Q522 254 530 274 Z" fill="#059669" />
+        </g>
+        <path d="M518 272 L546 272 L542 294 L522 294 Z" fill="#c9a227" />
+        <rect x="516" y="270" width="32" height="5" rx="2" fill="#f5d77a" />
+      </g>
+
+      <!-- ===== developer (seen from behind) ===== -->
+      <g class="dw-dev">
+        <!-- arms reaching to the keyboard (drawn under the chair) -->
+        <path d="M146 276 Q200 286 250 298" stroke="#4a3ee0" stroke-width="12" stroke-linecap="round" />
+        <path d="M208 270 Q252 280 300 296" stroke="#4a3ee0" stroke-width="12" stroke-linecap="round" />
+        <!-- torso / hoodie -->
+        <path d="M130 312 Q128 268 178 258 Q228 268 226 312 Z" fill="url(#dw-hoodie)" />
+        <path d="M160 262 Q178 274 196 262" stroke="#2e24a8" stroke-width="3" stroke-linecap="round" />
+        <!-- neck -->
+        <rect x="170" y="244" width="16" height="16" rx="5" fill="#d99888" />
+        <!-- head -->
+        <g class="dw-head">
+          <ellipse cx="178" cy="226" rx="22" ry="24" fill="#2a1d14" />
+          <ellipse cx="200" cy="230" rx="4" ry="6" fill="#e8a598" />
+          <path d="M160 214 Q178 200 198 214" stroke="#3d2a1c" stroke-width="3" stroke-linecap="round" />
+          <!-- rim light from the screen -->
+          <path d="M196 212 Q202 224 198 240" stroke="#a5a0ff" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round" />
+          <!-- headphones -->
+          <path d="M156 226 Q156 194 178 194 Q200 194 200 226" stroke="#7c6cff" stroke-width="5" stroke-linecap="round" />
+          <rect x="149" y="220" width="11" height="18" rx="5" fill="#7c6cff" />
+          <rect x="196" y="220" width="11" height="18" rx="5" fill="#7c6cff" />
+          <circle cx="201.5" cy="229" r="2" fill="#38bdf8" class="dw-headphone-led" />
+        </g>
       </g>
 
       <!-- typing hands -->
-      <g class="dw-hands">
-        <g class="dw-hand dw-hand--left">
-          <ellipse cx="236" cy="222" rx="11" ry="7" fill="#e8a598" />
-          <ellipse cx="228" cy="218" rx="4" ry="3" fill="#d4958a" />
-        </g>
-        <g class="dw-hand dw-hand--right">
-          <ellipse cx="272" cy="220" rx="11" ry="7" fill="#e8a598" />
-          <ellipse cx="280" cy="216" rx="4" ry="3" fill="#d4958a" />
-        </g>
-      </g>
+      <ellipse cx="252" cy="297" rx="8" ry="5" fill="#e8a598" class="dw-hand dw-hand--left" />
+      <ellipse cx="300" cy="295" rx="8" ry="5" fill="#e8a598" class="dw-hand dw-hand--right" />
 
-      <!-- desk -->
-      <g class="dw-desk" filter="url(#dw-shadow)">
-        <!-- top -->
-        <path d="M100 248 L500 248 L540 278 L140 278 Z" fill="url(#dw-desk-top)" stroke="#60a5fa" stroke-opacity="0.35" />
-        <!-- front -->
-        <path d="M140 278 L540 278 L540 302 L140 302 Z" fill="url(#dw-desk-front)" />
-        <!-- legs -->
-        <path d="M155 302 L165 338 L178 338 L168 302 Z" fill="#1a4588" />
-        <path d="M505 302 L515 338 L528 338 L518 302 Z" fill="#1a4588" />
-      </g>
-
-      <!-- monitor -->
-      <g class="dw-monitor">
-        <rect x="268" y="148" width="148" height="92" rx="5" fill="#0f172a" stroke="#94a3b8" stroke-width="2" />
-        <rect x="276" y="156" width="132" height="76" rx="3" fill="url(#dw-screen)" class="dw-screen" />
-        <!-- code on screen -->
-        <g transform="translate(286 168)">
-          <rect width="52" height="5" rx="2" fill="#7c6cff" class="dw-code dw-code--1" />
-          <rect y="12" width="78" height="5" rx="2" fill="#38bdf8" class="dw-code dw-code--2" />
-          <rect y="24" width="64" height="5" rx="2" fill="#42b883" class="dw-code dw-code--3" />
-          <rect y="36" width="70" height="5" rx="2" fill="#c9a227" class="dw-code dw-code--4" />
-          <rect x="74" y="36" width="7" height="12" fill="#38bdf8" class="dw-cursor" />
-        </g>
-        <!-- stand -->
-        <path d="M330 240 L330 250 L318 250 L342 250 Z" fill="#334155" />
-        <rect x="310" y="250" width="56" height="5" rx="2" fill="#475569" />
-      </g>
-
-      <!-- tablet / pad left -->
-      <rect x="168" y="256" width="44" height="6" rx="2" fill="#1e293b" stroke="#64748b" stroke-width="1" />
-
-      <!-- keyboard -->
-      <g class="dw-keyboard">
-        <rect x="222" y="254" width="118" height="14" rx="3" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
-        <!-- key rows -->
-        <g fill="#94a3b8" opacity="0.7">
-          <rect x="228" y="257" width="8" height="3" rx="0.5" class="dw-key dw-key--1" />
-          <rect x="240" y="257" width="8" height="3" rx="0.5" class="dw-key dw-key--2" />
-          <rect x="252" y="257" width="8" height="3" rx="0.5" class="dw-key dw-key--3" />
-          <rect x="264" y="257" width="8" height="3" rx="0.5" class="dw-key dw-key--4" />
-          <rect x="276" y="257" width="8" height="3" rx="0.5" class="dw-key dw-key--5" />
-          <rect x="288" y="257" width="8" height="3" rx="0.5" class="dw-key dw-key--6" />
-          <rect x="300" y="257" width="8" height="3" rx="0.5" class="dw-key dw-key--7" />
-          <rect x="312" y="257" width="8" height="3" rx="0.5" class="dw-key dw-key--8" />
-          <rect x="324" y="257" width="8" height="3" rx="0.5" class="dw-key dw-key--9" />
-        </g>
-        <rect x="240" y="262" width="72" height="3" rx="0.5" fill="#94a3b8" opacity="0.5" />
-      </g>
-
-      <!-- coffee cup -->
-      <g class="dw-coffee">
-        <rect x="388" y="248" width="22" height="18" rx="3" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.2" />
-        <path d="M410 254 L418 254 Q422 258 418 262 L410 262 Z" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" />
-        <path d="M394 248 L396 242 L404 242 L406 248" fill="#e2e8f0" />
-        <ellipse cx="399" cy="256" rx="6" ry="2" fill="#8b5a2b" opacity="0.5" class="dw-coffee-surface" />
-        <!-- steam -->
-        <path d="M396 238 Q394 232 396 226" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" fill="none" class="dw-steam dw-steam--1" opacity="0.5" />
-        <path d="M402 236 Q404 230 402 224" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" fill="none" class="dw-steam dw-steam--2" opacity="0.5" />
+      <!-- ===== chair ===== -->
+      <g class="dw-chair">
+        <path d="M138 362 Q130 312 144 282 Q178 268 212 282 Q226 312 218 362 Z" fill="url(#dw-chair)" stroke="#4a4478" stroke-width="1.5" />
+        <path d="M152 300 Q178 292 204 300" stroke="#7c6cff" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round" />
+        <path d="M150 326 Q178 318 206 326" stroke="#7c6cff" stroke-opacity="0.25" stroke-width="2" stroke-linecap="round" />
+        <rect x="172" y="360" width="12" height="18" rx="3" fill="#2d2a4a" />
+        <path d="M150 382 L206 382 M178 376 L160 388 M178 376 L196 388" stroke="#2d2a4a" stroke-width="5" stroke-linecap="round" />
+        <circle cx="150" cy="386" r="3.5" fill="#1c1a30" />
+        <circle cx="206" cy="386" r="3.5" fill="#1c1a30" />
+        <circle cx="160" cy="390" r="3.5" fill="#1c1a30" />
+        <circle cx="196" cy="390" r="3.5" fill="#1c1a30" />
       </g>
     </svg>
   </div>
@@ -194,113 +427,185 @@ const floatingTech = [
   width: 100%;
   height: auto;
   display: block;
+  overflow: visible;
 }
 
-/* floating badges */
+/* badges */
 .dw-badge {
-  animation: dw-badge-float 4s ease-in-out infinite;
+  animation: dw-badge-float 4.5s ease-in-out infinite;
   transform-box: fill-box;
   transform-origin: center;
 }
-.dw-badge--1 { animation-duration: 4.2s; }
-.dw-badge--2 { animation-duration: 4.8s; }
-.dw-badge--3 { animation-duration: 5.1s; }
-.dw-badge--4 { animation-duration: 4.5s; }
-.dw-badge--5 { animation-duration: 5.3s; }
-.dw-badge--6 { animation-duration: 4.7s; }
-.dw-badge--7 { animation-duration: 5.5s; }
+
+.dw-badge-dot {
+  animation: dw-dot-pulse 2.4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
 
 .dw-trail {
-  animation: dw-trail-flow 2.5s linear infinite;
+  animation: dw-trail-flow 1.6s linear infinite;
 }
-.dw-trail--2 { animation-delay: 0.6s; }
-.dw-trail--3 { animation-delay: 1.2s; }
-.dw-trail--4 { animation-delay: 0.3s; }
-.dw-trail--5 { animation-delay: 0.9s; }
-.dw-trail--6 { animation-delay: 1.5s; }
 
-/* screen */
-.dw-screen { animation: dw-screen-glow 3s ease-in-out infinite; }
-.dw-code { animation: dw-code-pulse 2s ease-in-out infinite; }
-.dw-code--2 { animation-delay: 0.25s; }
-.dw-code--3 { animation-delay: 0.5s; }
-.dw-code--4 { animation-delay: 0.75s; }
-.dw-cursor { animation: dw-cursor-blink 1s step-end infinite; }
+/* window */
+.dw-star {
+  animation: dw-twinkle 2.6s ease-in-out infinite;
+}
 
-/* typing: hands alternate, keys flash */
-.dw-hand--left {
-  animation: dw-type-left 0.45s ease-in-out infinite;
-  transform-origin: 236px 222px;
+.dw-moon {
+  filter: drop-shadow(0 0 6px rgba(245, 215, 122, 0.6));
+}
+
+.dw-city-light { animation: dw-twinkle 3.2s ease-in-out infinite; }
+.dw-city-light--2 { animation-delay: 1.1s; }
+.dw-city-light--3 { animation-delay: 2s; }
+
+/* lamp + screen light */
+.dw-lamp-light { animation: dw-lamp-flicker 6s ease-in-out infinite; }
+.dw-bulb { filter: drop-shadow(0 0 5px #ffd98a); }
+.dw-desk-glow { animation: dw-glow-pulse 4s ease-in-out infinite; }
+
+/* code typing: each line types in, holds, then fades before the loop restarts */
+.dw-code-line {
   transform-box: fill-box;
+  transform-origin: left center;
+  animation: dw-type-line 8s var(--ease-out) infinite backwards;
 }
-.dw-hand--right {
-  animation: dw-type-right 0.45s ease-in-out infinite;
-  transform-origin: 272px 220px;
+
+.dw-cursor {
+  animation: dw-cursor-blink 0.9s step-end infinite;
+}
+
+/* terminal */
+.dw-progress {
   transform-box: fill-box;
+  transform-origin: left center;
+  animation: dw-progress 5s ease-in-out infinite;
 }
 
-.dw-key--1 { animation: dw-key-press 0.9s ease-in-out infinite; }
-.dw-key--3 { animation: dw-key-press 0.9s ease-in-out infinite 0.15s; }
-.dw-key--5 { animation: dw-key-press 0.9s ease-in-out infinite 0.3s; }
-.dw-key--7 { animation: dw-key-press 0.9s ease-in-out infinite 0.45s; }
-.dw-key--2 { animation: dw-key-press 0.9s ease-in-out infinite 0.45s; }
-.dw-key--4 { animation: dw-key-press 0.9s ease-in-out infinite 0.6s; }
-.dw-key--6 { animation: dw-key-press 0.9s ease-in-out infinite 0.75s; }
-.dw-key--8 { animation: dw-key-press 0.9s ease-in-out infinite 0.9s; }
+.dw-term-line {
+  opacity: 0;
+  animation: dw-term-in 5s ease-out infinite;
+}
+.dw-term-line--2 { animation-delay: 0.35s; }
+.dw-term-line--3 { animation-delay: 0.7s; }
 
-.dw-dev {
-  animation: dw-dev-bob 4s ease-in-out infinite;
-  transform-origin: 168px 240px;
+/* keyboard + hands */
+.dw-key {
+  animation: dw-key-press 1.2s ease-in-out infinite;
+}
+
+.dw-hand {
   transform-box: fill-box;
+  transform-origin: center;
+}
+.dw-hand--left { animation: dw-type-hand 0.42s ease-in-out infinite; }
+.dw-hand--right { animation: dw-type-hand 0.42s ease-in-out infinite 0.21s; }
+
+.dw-head {
+  animation: dw-head-nod 3.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
 }
 
-.dw-steam--1 { animation: dw-steam-rise 2.5s ease-in-out infinite; }
-.dw-steam--2 { animation: dw-steam-rise 2.5s ease-in-out infinite 0.8s; }
+.dw-headphone-led { animation: dw-twinkle 1.4s ease-in-out infinite; }
+
+/* desk items */
+.dw-steam { animation: dw-steam-rise 2.8s ease-in-out infinite; }
+.dw-steam--2 { animation-delay: 1s; }
+
+.dw-leaves {
+  animation: dw-sway 5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.dw-glyph {
+  opacity: 0;
+  animation: dw-glyph-float 6s ease-in-out infinite;
+}
+.dw-glyph--2 { animation-delay: 2s; }
+.dw-glyph--3 { animation-delay: 4s; }
 
 @keyframes dw-badge-float {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(5px, -8px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+@keyframes dw-dot-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.35); opacity: 1; }
 }
 @keyframes dw-trail-flow {
-  to { stroke-dashoffset: -36; }
+  to { stroke-dashoffset: -24; }
 }
-@keyframes dw-screen-glow {
-  0%, 100% { opacity: 0.9; }
+@keyframes dw-twinkle {
+  0%, 100% { opacity: 0.25; }
   50% { opacity: 1; }
 }
-@keyframes dw-code-pulse {
-  0%, 100% { opacity: 0.5; }
+@keyframes dw-lamp-flicker {
+  0%, 100% { opacity: 1; }
+  46% { opacity: 1; }
+  48% { opacity: 0.7; }
   50% { opacity: 1; }
+}
+@keyframes dw-glow-pulse {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}
+@keyframes dw-type-line {
+  0% { transform: scaleX(0); opacity: 1; }
+  8% { transform: scaleX(1); opacity: 1; }
+  78% { transform: scaleX(1); opacity: 1; }
+  88%, 100% { transform: scaleX(1); opacity: 0; }
 }
 @keyframes dw-cursor-blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-@keyframes dw-type-left {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+@keyframes dw-progress {
+  0% { transform: scaleX(0); }
+  55%, 100% { transform: scaleX(1); }
 }
-@keyframes dw-type-right {
-  0%, 100% { transform: translateY(4px); }
-  50% { transform: translateY(0); }
+@keyframes dw-term-in {
+  0%, 55% { opacity: 0; }
+  62%, 92% { opacity: 1; }
+  100% { opacity: 0; }
 }
 @keyframes dw-key-press {
-  0%, 100% { fill: #94a3b8; opacity: 0.7; }
-  50% { fill: #7c6cff; opacity: 1; }
+  0%, 100% { fill: #6b64a8; }
+  50% { fill: #a5a0ff; }
 }
-@keyframes dw-dev-bob {
+@keyframes dw-type-hand {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(2px); }
+  50% { transform: translateY(2.5px); }
+}
+@keyframes dw-head-nod {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-2deg); }
 }
 @keyframes dw-steam-rise {
-  0%, 100% { transform: translateY(0); opacity: 0.3; }
-  50% { transform: translateY(-6px); opacity: 0.6; }
+  0% { transform: translateY(0); opacity: 0; }
+  40% { opacity: 0.7; }
+  100% { transform: translateY(-10px); opacity: 0; }
+}
+@keyframes dw-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes dw-glyph-float {
+  0% { transform: translateY(8px); opacity: 0; }
+  20%, 60% { opacity: 0.9; }
+  100% { transform: translateY(-22px); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .dw-badge, .dw-trail, .dw-screen, .dw-code, .dw-cursor,
-  .dw-hand--left, .dw-hand--right, .dw-key, .dw-dev, .dw-steam {
+  .dev-workspace__svg * {
     animation: none !important;
+  }
+
+  .dw-term-line,
+  .dw-glyph {
+    opacity: 1;
   }
 }
 </style>

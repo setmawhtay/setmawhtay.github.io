@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e0b1f"/>
+      <stop offset="1" stop-color="#0a1420"/>
+    </linearGradient>
+    <linearGradient id="hl" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#c9a227"/>
+      <stop offset="1" stop-color="#f5d77a"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c6cff"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.78" cy="0.45" r="0.45">
+      <stop offset="0" stop-color="#c9a227" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#c9a227" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#bg)"/>
+  <rect width="640" height="360" fill="url(#glow)"/>
+  <!-- browser chrome -->
+  <rect width="640" height="28" fill="#15122a"/>
+  <circle cx="18" cy="14" r="5" fill="#ff5f57"/><circle cx="34" cy="14" r="5" fill="#febc2e"/><circle cx="50" cy="14" r="5" fill="#28c840"/>
+  <rect x="190" y="7" width="260" height="14" rx="7" fill="#0c0a18"/>
+  <text x="320" y="18" text-anchor="middle" fill="#9b9bb8" font-family="monospace" font-size="9">capital-knowledge.com</text>
+  <!-- nav -->
+  <rect x="40" y="48" width="22" height="22" rx="6" fill="url(#hl)"/>
+  <text x="70" y="64" fill="#f2f2fa" font-family="system-ui" font-size="13" font-weight="700">Capital Knowledge</text>
+  <rect x="380" y="56" width="40" height="6" rx="3" fill="#3a3658"/>
+  <rect x="432" y="56" width="40" height="6" rx="3" fill="#3a3658"/>
+  <rect x="484" y="56" width="40" height="6" rx="3" fill="#3a3658"/>
+  <rect x="540" y="48" width="64" height="22" rx="11" fill="url(#btn)"/>
+  <!-- hero copy -->
+  <rect x="40" y="108" width="84" height="16" rx="8" fill="#c9a227" fill-opacity="0.16" stroke="#c9a227" stroke-opacity="0.5"/>
+  <rect x="50" y="114" width="64" height="4" rx="2" fill="#f5d77a"/>
+  <text x="40" y="160" fill="#f2f2fa" font-family="system-ui" font-size="28" font-weight="800">Grow your</text>
+  <text x="40" y="194" fill="url(#hl)" font-family="system-ui" font-size="28" font-weight="800">capital knowledge</text>
+  <rect x="40" y="212" width="250" height="7" rx="3.5" fill="#4a4668"/>
+  <rect x="40" y="226" width="210" height="7" rx="3.5" fill="#4a4668"/>
+  <rect x="40" y="254" width="116" height="34" rx="17" fill="url(#btn)"/>
+  <rect x="62" y="268" width="72" height="6" rx="3" fill="#fff" fill-opacity="0.9"/>
+  <rect x="168" y="254" width="104" height="34" rx="17" stroke="#9b9bb8" stroke-opacity="0.5"/>
+  <rect x="188" y="268" width="64" height="6" rx="3" fill="#9b9bb8"/>
+  <!-- stats -->
+  <text x="40" y="326" fill="#f5d77a" font-family="system-ui" font-size="18" font-weight="800">10K+</text>
+  <text x="120" y="326" fill="#38bdf8" font-family="system-ui" font-size="18" font-weight="800">4.9★</text>
+  <text x="196" y="326" fill="#a5a0ff" font-family="system-ui" font-size="18" font-weight="800">24/7</text>
+  <!-- chart card -->
+  <rect x="370" y="104" width="232" height="176" rx="14" fill="#16132b" stroke="#c9a227" stroke-opacity="0.25"/>
+  <rect x="390" y="124" width="80" height="6" rx="3" fill="#4a4668"/>
+  <text x="390" y="156" fill="#f2f2fa" font-family="system-ui" font-size="22" font-weight="800">+128%</text>
+  <path d="M390 250 L420 236 L450 242 L480 214 L510 222 L540 188 L580 172" stroke="url(#hl)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M390 250 L420 236 L450 242 L480 214 L510 222 L540 188 L580 172 L580 262 L390 262 Z" fill="#c9a227" fill-opacity="0.1"/>
+  <circle cx="580" cy="172" r="5" fill="#f5d77a"/>
+  <!-- floating card -->
+  <rect x="330" y="248" width="120" height="52" rx="12" fill="#1d1938" stroke="#7c6cff" stroke-opacity="0.4"/>
+  <circle cx="352" cy="274" r="11" fill="#7c6cff" fill-opacity="0.35"/>
+  <rect x="370" y="264" width="64" height="6" rx="3" fill="#a5a0ff"/>
+  <rect x="370" y="278" width="44" height="5" rx="2.5" fill="#4a4668"/>
+</svg>
