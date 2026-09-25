@@ -41,13 +41,6 @@ defineProps({
       <ellipse cx="24" cy="24" rx="18" ry="7" stroke="#61DAFB" stroke-width="1.5" transform="rotate(120 24 24)" class="tech-icon__react-orbit" />
     </template>
 
-    <!-- React Native -->
-    <template v-else-if="id === 'react-native'">
-      <circle cx="24" cy="24" r="4" fill="#61DAFB" />
-      <ellipse cx="24" cy="24" rx="14" ry="6" stroke="#61DAFB" stroke-width="1.5" />
-      <ellipse cx="24" cy="24" rx="14" ry="6" stroke="#61DAFB" stroke-width="1.5" transform="rotate(60 24 24)" />
-      <rect x="18" y="36" width="12" height="4" rx="2" fill="#61DAFB" opacity="0.5" />
-    </template>
 
     <!-- Node.js -->
     <template v-else-if="id === 'nodejs'">
@@ -60,6 +53,14 @@ defineProps({
       <ellipse cx="24" cy="14" rx="14" ry="6" fill="#00758F" opacity="0.7" />
       <path d="M10 14 V30 C10 36 16 40 24 40 C32 40 38 36 38 30 V14" fill="#00758F" opacity="0.5" />
       <ellipse cx="24" cy="30" rx="14" ry="6" fill="#00758F" opacity="0.3" />
+    </template>
+
+    <!-- Redis -->
+    <template v-else-if="id === 'redis'">
+      <path d="M24 10 L40 17 L24 24 L8 17 Z" fill="#DC382D" />
+      <path d="M8 23 L24 30 L40 23" stroke="#DC382D" stroke-width="3" stroke-linejoin="round" opacity="0.75" />
+      <path d="M8 30 L24 37 L40 30" stroke="#DC382D" stroke-width="3" stroke-linejoin="round" opacity="0.5" />
+      <path d="M20 16 L28 16" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.8" />
     </template>
 
     <!-- AWS -->

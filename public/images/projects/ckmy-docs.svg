@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
+  <rect width="640" height="360" fill="#0c0a14"/>
+  <rect x="0" y="0" width="136" height="360" fill="#12101c"/>
+  <rect x="16" y="16" width="20" height="20" rx="5" fill="#22a06b" opacity="0.8"/>
+  <text x="44" y="31" fill="#f2f2fa" font-family="system-ui" font-size="13" font-weight="700">CKMY Docs</text>
+  <rect x="16" y="56" width="10" height="10" rx="2" fill="#303050"/>
+  <text x="34" y="65" fill="#9b9bb8" font-family="system-ui" font-size="10">Dashboard</text>
+  <rect x="8" y="76" width="120" height="24" rx="6" fill="#7c6cff"/>
+  <text x="34" y="92" fill="#fff" font-family="system-ui" font-size="10" font-weight="600">Tasks</text>
+  <circle cx="30" cy="116" r="5" fill="#303050"/><rect x="42" y="113" width="52" height="6" rx="3" fill="#303050"/>
+  <circle cx="30" cy="136" r="5" fill="#303050"/><rect x="42" y="133" width="68" height="6" rx="3" fill="#303050"/>
+  <circle cx="30" cy="156" r="5" fill="#303050"/><rect x="42" y="153" width="60" height="6" rx="3" fill="#303050"/>
+  <rect x="18" y="168" width="110" height="20" rx="5" fill="#7c6cff" opacity="0.7"/>
+  <circle cx="30" cy="178" r="5" fill="#fff" opacity="0.5"/><rect x="42" y="175" width="64" height="6" rx="3" fill="#fff" opacity="0.6"/>
+  <text x="34" y="210" fill="#9b9bb8" font-family="system-ui" font-size="10">Documentation</text>
+  <text x="34" y="232" fill="#9b9bb8" font-family="system-ui" font-size="10">Users</text>
+  <text x="34" y="254" fill="#9b9bb8" font-family="system-ui" font-size="10">Logs</text>
+  <text x="34" y="276" fill="#9b9bb8" font-family="system-ui" font-size="10">Roles &amp; Permissions</text>
+  <text x="34" y="298" fill="#9b9bb8" font-family="system-ui" font-size="10">API Clients</text>
+  <rect x="136" y="0" width="504" height="44" fill="#12101c"/>
+  <rect x="440" y="12" width="20" height="20" rx="5" fill="#1e1a2e"/><rect x="466" y="12" width="20" height="20" rx="5" fill="#1e1a2e"/>
+  <circle cx="512" cy="22" r="10" fill="#303050"/>
+  <text x="528" y="20" fill="#f2f2fa" font-family="system-ui" font-size="9" font-weight="600">Set Maw Htay</text>
+  <text x="528" y="32" fill="#7c6cff" font-family="system-ui" font-size="8">System Admin</text>
+  <rect x="152" y="56" width="472" height="52" rx="8" fill="#38bdf8" opacity="0.25"/>
+  <rect x="166" y="67" width="120" height="12" rx="4" fill="#f2f2fa" opacity="0.8"/>
+  <text x="166" y="96" fill="#34d399" font-family="system-ui" font-size="9">Drag and drop tasks between columns</text>
+  <rect x="438" y="70" width="84" height="22" rx="5" fill="#1e1a2e"/>
+  <rect x="442" y="74" width="36" height="14" rx="4" fill="#f2f2fa"/>
+  <text x="460" y="84" text-anchor="middle" fill="#7c6cff" font-family="system-ui" font-size="8" font-weight="600">Board</text>
+  <text x="500" y="85" text-anchor="middle" fill="#9b9bb8" font-family="system-ui" font-size="8">Grid</text>
+  <rect x="530" y="70" width="80" height="22" rx="5" fill="#f2f2fa"/>
+  <text x="570" y="85" text-anchor="middle" fill="#7c6cff" font-family="system-ui" font-size="9" font-weight="700">+ Add Task</text>
+  <rect x="152" y="116" width="472" height="30" rx="6" fill="#161325"/>
+  <rect x="162" y="123" width="130" height="16" rx="4" fill="#1e1a2e"/>
+  <text x="172" y="134" fill="#9b9bb8" font-family="system-ui" font-size="8">Search tasks...</text>
+  <rect x="300" y="123" width="70" height="16" rx="4" fill="#1e1a2e"/>
+  <rect x="376" y="123" width="70" height="16" rx="4" fill="#1e1a2e"/>
+  <rect x="452" y="123" width="70" height="16" rx="4" fill="#1e1a2e"/>
+  <rect x="530" y="123" width="84" height="16" rx="4" fill="#303050"/>
+  <rect x="152" y="154" width="112" height="196" rx="8" fill="#161325"/>
+  <circle cx="164" cy="168" r="4" fill="#9b9bb8"/><text x="172" y="171" fill="#f2f2fa" font-family="system-ui" font-size="9" font-weight="600">To Do</text>
+  <rect x="160" y="180" width="96" height="56" rx="6" fill="#1e1a2e" stroke="#9b9bb8" stroke-opacity="0.3"/>
+  <rect x="168" y="190" width="76" height="5" rx="2" fill="#f2f2fa" opacity="0.8"/>
+  <rect x="168" y="200" width="56" height="5" rx="2" fill="#f2f2fa" opacity="0.8"/>
+  <rect x="168" y="216" width="32" height="12" rx="3" fill="#fbbf24" opacity="0.25"/>
+  <rect x="272" y="154" width="112" height="196" rx="8" fill="#161325"/>
+  <circle cx="284" cy="168" r="4" fill="#38bdf8"/><text x="292" y="171" fill="#f2f2fa" font-family="system-ui" font-size="9" font-weight="600">In Progress</text>
+  <rect x="280" y="180" width="96" height="44" rx="6" stroke="#303050" stroke-dasharray="4 3"/>
+  <text x="328" y="205" text-anchor="middle" fill="#9b9bb8" font-family="system-ui" font-size="8">No tasks</text>
+  <rect x="392" y="154" width="112" height="196" rx="8" fill="#161325"/>
+  <circle cx="404" cy="168" r="4" fill="#fb923c"/><text x="412" y="171" fill="#f2f2fa" font-family="system-ui" font-size="9" font-weight="600">Review</text>
+  <rect x="400" y="180" width="96" height="56" rx="6" fill="#1e1a2e"/>
+  <rect x="408" y="190" width="76" height="5" rx="2" fill="#f2f2fa" opacity="0.8"/>
+  <rect x="408" y="200" width="60" height="5" rx="2" fill="#9b9bb8"/>
+  <rect x="408" y="216" width="32" height="12" rx="3" fill="#fbbf24" opacity="0.25"/><circle cx="484" cy="222" r="6" fill="#f85149" opacity="0.7"/>
+  <rect x="400" y="244" width="96" height="56" rx="6" fill="#1e1a2e"/>
+  <rect x="408" y="254" width="70" height="5" rx="2" fill="#f2f2fa" opacity="0.8"/>
+  <rect x="408" y="264" width="50" height="5" rx="2" fill="#9b9bb8"/>
+  <rect x="408" y="280" width="32" height="12" rx="3" fill="#fbbf24" opacity="0.25"/>
+  <rect x="512" y="154" width="112" height="196" rx="8" fill="#161325"/>
+  <circle cx="524" cy="168" r="4" fill="#34d399"/><text x="532" y="171" fill="#f2f2fa" font-family="system-ui" font-size="9" font-weight="600">Done</text>
+  <rect x="520" y="180" width="96" height="44" rx="6" fill="#1e1a2e"/>
+  <rect x="528" y="190" width="56" height="5" rx="2" fill="#f2f2fa" opacity="0.8"/>
+  <rect x="528" y="206" width="32" height="10" rx="3" fill="#34d399" opacity="0.25"/>
+  <rect x="520" y="232" width="96" height="44" rx="6" fill="#1e1a2e"/>
+  <rect x="528" y="242" width="70" height="5" rx="2" fill="#f2f2fa" opacity="0.8"/>
+  <rect x="528" y="258" width="32" height="10" rx="3" fill="#34d399" opacity="0.25"/>
+  <rect x="520" y="284" width="96" height="44" rx="6" fill="#1e1a2e"/>
+  <rect x="528" y="294" width="64" height="5" rx="2" fill="#f2f2fa" opacity="0.8"/>
+  <rect x="528" y="310" width="32" height="10" rx="3" fill="#34d399" opacity="0.25"/>
+</svg>
