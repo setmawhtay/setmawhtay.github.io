@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" fill="none">
   <rect width="640" height="360" fill="#0c0a14"/>
   <rect x="0" y="0" width="640" height="52" fill="#12101c"/>
-  <rect x="20" y="13" width="128" height="26" rx="13" fill="#f2f2fa"/>
+  <rect x="20" y="13" width="150" height="26" rx="13" fill="#f2f2fa"/>
   <rect x="30" y="19" width="4" height="14" rx="1" fill="#22a06b"/><rect x="37" y="19" width="4" height="14" rx="1" fill="#1e1a2e"/><rect x="44" y="19" width="4" height="14" rx="1" fill="#1e1a2e"/>
-  <text x="56" y="31" fill="#12101c" font-family="system-ui" font-size="11" font-weight="700">Capital Knowledge</text>
-  <rect x="176" y="18" width="40" height="16" rx="8" fill="#303050"/>
-  <text x="196" y="30" text-anchor="middle" fill="#f2f2fa" font-family="system-ui" font-size="9">Home</text>
-  <text x="228" y="30" fill="#9b9bb8" font-family="system-ui" font-size="9">Achievement</text>
-  <text x="292" y="30" fill="#9b9bb8" font-family="system-ui" font-size="9">Concept</text>
-  <text x="338" y="30" fill="#9b9bb8" font-family="system-ui" font-size="9">EC Consultant</text>
-  <text x="408" y="30" fill="#9b9bb8" font-family="system-ui" font-size="9">ISO Consulting</text>
-  <rect x="490" y="18" width="20" height="14" rx="3" fill="#303050"/><rect x="514" y="18" width="20" height="14" rx="3" fill="#fbbf24" opacity="0.6"/>
+  <text x="56" y="30.5" fill="#12101c" font-family="system-ui" font-size="11" font-weight="700" textLength="104" lengthAdjust="spacingAndGlyphs">Capital Knowledge</text>
+  <rect x="182" y="18" width="40" height="16" rx="8" fill="#303050"/>
+  <text x="202" y="30" text-anchor="middle" fill="#f2f2fa" font-family="system-ui" font-size="9">Home</text>
+  <text x="232" y="30" fill="#9b9bb8" font-family="system-ui" font-size="9">Achievement</text>
+  <text x="302" y="30" fill="#9b9bb8" font-family="system-ui" font-size="9">Concept</text>
+  <text x="348" y="30" fill="#9b9bb8" font-family="system-ui" font-size="9">EC Consultant</text>
+  <text x="418" y="30" fill="#9b9bb8" font-family="system-ui" font-size="9">ISO Consulting</text>
+  <rect x="494" y="18" width="18" height="14" rx="3" fill="#303050"/><rect x="516" y="18" width="18" height="14" rx="3" fill="#fbbf24" opacity="0.6"/>
   <rect x="542" y="14" width="80" height="24" rx="12" fill="#fb923c"/>
   <text x="582" y="30" text-anchor="middle" fill="#12101c" font-family="system-ui" font-size="10" font-weight="700">Contact Us</text>
   <rect x="0" y="52" width="640" height="220" fill="#12251f"/>

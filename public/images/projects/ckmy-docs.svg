@@ -7,11 +7,11 @@
   <text x="34" y="65" fill="#9b9bb8" font-family="system-ui" font-size="10">Dashboard</text>
   <rect x="8" y="76" width="120" height="24" rx="6" fill="#7c6cff"/>
   <text x="34" y="92" fill="#fff" font-family="system-ui" font-size="10" font-weight="600">Tasks</text>
-  <circle cx="30" cy="116" r="5" fill="#22a06b" opacity="0.6"/><text x="42" y="119" fill="#9b9bb8" font-family="system-ui" font-size="9">PHP TEAM</text>
-  <circle cx="30" cy="136" r="5" fill="#22a06b" opacity="0.6"/><text x="42" y="139" fill="#9b9bb8" font-family="system-ui" font-size="9">CKMY DOCS API</text>
-  <circle cx="30" cy="156" r="5" fill="#22a06b" opacity="0.6"/><text x="42" y="159" fill="#9b9bb8" font-family="system-ui" font-size="9">CKM Home Page</text>
+  <circle cx="30" cy="116" r="5" fill="#303050"/><rect x="42" y="113" width="52" height="6" rx="3" fill="#303050"/>
+  <circle cx="30" cy="136" r="5" fill="#303050"/><rect x="42" y="133" width="68" height="6" rx="3" fill="#303050"/>
+  <circle cx="30" cy="156" r="5" fill="#303050"/><rect x="42" y="153" width="60" height="6" rx="3" fill="#303050"/>
   <rect x="18" y="168" width="110" height="20" rx="5" fill="#7c6cff" opacity="0.7"/>
-  <text x="42" y="182" fill="#fff" font-family="system-ui" font-size="9">HelpDesk System</text>
+  <circle cx="30" cy="178" r="5" fill="#fff" opacity="0.5"/><rect x="42" y="175" width="64" height="6" rx="3" fill="#fff" opacity="0.6"/>
   <text x="34" y="210" fill="#9b9bb8" font-family="system-ui" font-size="10">Documentation</text>
   <text x="34" y="232" fill="#9b9bb8" font-family="system-ui" font-size="10">Users</text>
   <text x="34" y="254" fill="#9b9bb8" font-family="system-ui" font-size="10">Logs</text>
@@ -23,7 +23,7 @@
   <text x="528" y="20" fill="#f2f2fa" font-family="system-ui" font-size="9" font-weight="600">Set Maw Htay</text>
   <text x="528" y="32" fill="#7c6cff" font-family="system-ui" font-size="8">System Admin</text>
   <rect x="152" y="56" width="472" height="52" rx="8" fill="#38bdf8" opacity="0.25"/>
-  <text x="166" y="78" fill="#f2f2fa" font-family="system-ui" font-size="15" font-weight="700">HelpDesk System</text>
+  <rect x="166" y="67" width="120" height="12" rx="4" fill="#f2f2fa" opacity="0.8"/>
   <text x="166" y="96" fill="#34d399" font-family="system-ui" font-size="9">Drag and drop tasks between columns</text>
   <rect x="438" y="70" width="84" height="22" rx="5" fill="#1e1a2e"/>
   <rect x="442" y="74" width="36" height="14" rx="4" fill="#f2f2fa"/>
