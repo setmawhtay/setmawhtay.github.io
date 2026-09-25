@@ -16,8 +16,8 @@ export const projects = [
     title: 'Capital Knowledge Myanmar',
     category: 'Corporate Landing Page',
     description:
-      'Bilingual (English / Myanmar) company website for an EC consulting, system offshore, and ISO consulting firm — hero slider, service pages, achievements, and recruitment.',
-    tags: ['Landing Page', 'EN / MM i18n', 'Responsive', 'SEO'],
+      'Bilingual (English / Myanmar) company website for an EC consulting, system offshore, and ISO consulting firm — built with a pure PHP backend and React frontend, featuring a hero slider, service pages, achievements, and recruitment.',
+    tags: ['PHP', 'React', 'MySQL'],
     image: '/images/projects/capital-knowledge.webp',
     url: 'https://capital-knowledge.com/',
   },
@@ -26,8 +26,8 @@ export const projects = [
     title: 'CKMY Docs',
     category: 'Task Management System',
     description:
-      'Team task and helpdesk platform with drag-and-drop Kanban boards, filters, per-project access, documentation, activity logs, roles & permissions, API clients, and dark mode.',
-    tags: ['Kanban Board', 'RBAC', 'REST API', 'EN / MM i18n'],
+      'Team task and helpdesk platform on Laravel and Vue 3 with drag-and-drop Kanban boards, filters, per-project access, documentation, activity logs, roles & permissions, API clients, and Redis-backed caching and queues.',
+    tags: ['Laravel', 'Vue 3', 'Redis', 'MySQL'],
     image: '/images/projects/ckmy-docs.webp',
     url: 'https://docs.ckmy.eu.cc/',
   },

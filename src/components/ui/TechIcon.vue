@@ -55,6 +55,14 @@ defineProps({
       <ellipse cx="24" cy="30" rx="14" ry="6" fill="#00758F" opacity="0.3" />
     </template>
 
+    <!-- Redis -->
+    <template v-else-if="id === 'redis'">
+      <path d="M24 10 L40 17 L24 24 L8 17 Z" fill="#DC382D" />
+      <path d="M8 23 L24 30 L40 23" stroke="#DC382D" stroke-width="3" stroke-linejoin="round" opacity="0.75" />
+      <path d="M8 30 L24 37 L40 30" stroke="#DC382D" stroke-width="3" stroke-linejoin="round" opacity="0.5" />
+      <path d="M20 16 L28 16" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.8" />
+    </template>
+
     <!-- AWS -->
     <template v-else-if="id === 'aws'">
       <path d="M10 30 C10 22 16 16 24 16 C32 16 38 22 38 30" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round" />
