@@ -4,7 +4,7 @@ import { useReducedMotion } from '../../composables/useReducedMotion.js'
 const { prefersReduced } = useReducedMotion()
 
 /** Where every badge's data trail lands (top edge of the main monitor). */
-const target = { x: 305, y: 152 }
+const target = { x: 305, y: 106 }
 
 const floatingTech = [
   { label: 'PHP', x: 20, y: 70, color: '#8892bf', width: 60 },
@@ -67,7 +67,7 @@ const stars = [
 
 <template>
   <div class="dev-workspace" aria-hidden="true">
-    <svg class="dev-workspace__svg" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg class="dev-workspace__svg" viewBox="0 0 600 420" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="dw-desk-top" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%" stop-color="#2a2550" />
@@ -122,7 +122,7 @@ const stars = [
       </defs>
 
       <!-- ===== room ===== -->
-      <ellipse cx="305" cy="392" rx="270" ry="8" fill="#000" opacity="0.35" />
+      <ellipse cx="305" cy="412" rx="270" ry="8" fill="#000" opacity="0.35" />
 
       <!-- window with night sky -->
       <g class="dw-window">
@@ -226,8 +226,8 @@ const stars = [
         <path d="M70 290 L540 290" stroke="#7c6cff" stroke-opacity="0.35" />
         <path d="M38 318 L572 318 L572 336 L38 336 Z" fill="url(#dw-desk-front)" />
         <path d="M38 318 L572 318" stroke="#a5a0ff" stroke-opacity="0.25" />
-        <path d="M60 336 L66 392 L78 392 L74 336 Z" fill="#120f26" />
-        <path d="M536 336 L532 392 L544 392 L550 336 Z" fill="#120f26" />
+        <path d="M60 336 L66 410 L78 410 L74 336 Z" fill="#120f26" />
+        <path d="M536 336 L532 410 L544 410 L550 336 Z" fill="#120f26" />
       </g>
 
       <!-- screen light spilling onto desk -->
@@ -245,6 +245,10 @@ const stars = [
 
       <!-- ===== main monitor: code editor ===== -->
       <g class="dw-monitor" filter="url(#dw-shadow)">
+        <!-- stand (monitor is raised so the code stays visible above the developer's head) -->
+        <path d="M299 224 L295 286 L315 286 L311 224 Z" fill="#2a2550" />
+        <ellipse cx="305" cy="288" rx="32" ry="4.5" fill="#3a3560" />
+        <g transform="translate(0 -44)">
         <rect x="208" y="148" width="194" height="122" rx="8" fill="#0d0b1c" stroke="#3a3560" stroke-width="2" />
         <rect x="215" y="155" width="180" height="108" rx="4" fill="url(#dw-screen)" />
         <!-- title bar -->
@@ -296,9 +300,7 @@ const stars = [
         </rect>
         <!-- status bar -->
         <rect x="215" y="257" width="180" height="6" fill="#7c6cff" opacity="0.5" />
-        <!-- stand -->
-        <path d="M296 270 L292 286 L318 286 L314 270 Z" fill="#2a2550" />
-        <ellipse cx="305" cy="288" rx="32" ry="4.5" fill="#3a3560" />
+        </g>
       </g>
 
       <!-- ===== side monitor: build terminal ===== -->
@@ -330,7 +332,14 @@ const stars = [
 
       <!-- ===== desk items ===== -->
       <!-- keyboard -->
-      <g class="dw-keyboard">
+      <!-- books -->
+      <g>
+        <rect x="190" y="280" width="50" height="9" rx="2" fill="#38bdf8" fill-opacity="0.75" />
+        <rect x="194" y="272" width="44" height="8" rx="2" fill="#c9a227" fill-opacity="0.85" />
+        <rect x="188" y="264" width="46" height="8" rx="2" fill="#7c6cff" fill-opacity="0.85" />
+        <path d="M196 268 H226 M200 276 H230" stroke="#fff" stroke-opacity="0.35" stroke-width="1.2" />
+      </g>
+      <g class="dw-keyboard" transform="translate(14 0)">
         <path d="M238 294 L344 294 L350 306 L232 306 Z" fill="#2d2a4a" stroke="#4a4478" stroke-width="1" />
         <g fill="#6b64a8">
           <rect
@@ -350,9 +359,9 @@ const stars = [
         </g>
       </g>
       <!-- mouse -->
-      <ellipse cx="366" cy="302" rx="7" ry="4.5" fill="#2d2a4a" stroke="#4a4478" />
+      <ellipse cx="378" cy="302" rx="7" ry="4.5" fill="#2d2a4a" stroke="#4a4478" />
       <!-- coffee -->
-      <g class="dw-coffee">
+      <g class="dw-coffee" transform="translate(10 0)">
         <rect x="380" y="278" width="18" height="18" rx="3" fill="#f5f3ff" />
         <path d="M398 282 Q406 282 406 287 Q406 292 398 292" stroke="#f5f3ff" stroke-width="2.5" fill="none" />
         <rect x="380" y="283" width="18" height="4" fill="#7c6cff" opacity="0.8" />
@@ -371,46 +380,46 @@ const stars = [
         <rect x="516" y="270" width="32" height="5" rx="2" fill="#f5d77a" />
       </g>
 
-      <!-- ===== developer (seen from behind) ===== -->
+      <!-- ===== developer (seen from behind, centred on the main monitor) ===== -->
       <g class="dw-dev">
-        <!-- arms reaching to the keyboard (drawn under the chair) -->
-        <path d="M146 276 Q200 286 250 298" stroke="#4a3ee0" stroke-width="12" stroke-linecap="round" />
-        <path d="M208 270 Q252 280 300 296" stroke="#4a3ee0" stroke-width="12" stroke-linecap="round" />
         <!-- torso / hoodie -->
-        <path d="M130 312 Q128 268 178 258 Q228 268 226 312 Z" fill="url(#dw-hoodie)" />
-        <path d="M160 262 Q178 274 196 262" stroke="#2e24a8" stroke-width="3" stroke-linecap="round" />
+        <path d="M255 338 Q252 286 305 274 Q358 286 355 338 Z" fill="url(#dw-hoodie)" />
+        <path d="M286 278 Q305 292 324 278" stroke="#2e24a8" stroke-width="3" stroke-linecap="round" />
+        <!-- arms reaching forward to the keyboard -->
+        <path d="M268 286 Q244 294 256 304" stroke="#4a3ee0" stroke-width="12" stroke-linecap="round" />
+        <path d="M342 286 Q366 294 354 304" stroke="#4a3ee0" stroke-width="12" stroke-linecap="round" />
         <!-- neck -->
-        <rect x="170" y="244" width="16" height="16" rx="5" fill="#d99888" />
+        <rect x="297" y="256" width="16" height="20" rx="5" fill="#d99888" />
         <!-- head -->
         <g class="dw-head">
-          <ellipse cx="178" cy="226" rx="22" ry="24" fill="#2a1d14" />
-          <ellipse cx="200" cy="230" rx="4" ry="6" fill="#e8a598" />
-          <path d="M160 214 Q178 200 198 214" stroke="#3d2a1c" stroke-width="3" stroke-linecap="round" />
+          <ellipse cx="305" cy="238" rx="22" ry="24" fill="#2a1d14" />
+          <path d="M287 226 Q305 212 325 226" stroke="#3d2a1c" stroke-width="3" stroke-linecap="round" />
           <!-- rim light from the screen -->
-          <path d="M196 212 Q202 224 198 240" stroke="#a5a0ff" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round" />
+          <path d="M322 222 Q329 236 324 252" stroke="#a5a0ff" stroke-opacity="0.55" stroke-width="2" stroke-linecap="round" />
+          <path d="M288 222 Q281 236 286 252" stroke="#38bdf8" stroke-opacity="0.4" stroke-width="2" stroke-linecap="round" />
           <!-- headphones -->
-          <path d="M156 226 Q156 194 178 194 Q200 194 200 226" stroke="#7c6cff" stroke-width="5" stroke-linecap="round" />
-          <rect x="149" y="220" width="11" height="18" rx="5" fill="#7c6cff" />
-          <rect x="196" y="220" width="11" height="18" rx="5" fill="#7c6cff" />
-          <circle cx="201.5" cy="229" r="2" fill="#38bdf8" class="dw-headphone-led" />
+          <path d="M283 238 Q283 206 305 206 Q327 206 327 238" stroke="#7c6cff" stroke-width="5" stroke-linecap="round" />
+          <rect x="276" y="232" width="11" height="18" rx="5" fill="#7c6cff" />
+          <rect x="323" y="232" width="11" height="18" rx="5" fill="#7c6cff" />
+          <circle cx="328.5" cy="241" r="2" fill="#38bdf8" class="dw-headphone-led" />
         </g>
       </g>
 
       <!-- typing hands -->
-      <ellipse cx="252" cy="297" rx="8" ry="5" fill="#e8a598" class="dw-hand dw-hand--left" />
-      <ellipse cx="300" cy="295" rx="8" ry="5" fill="#e8a598" class="dw-hand dw-hand--right" />
+      <ellipse cx="259" cy="303" rx="7" ry="4.5" fill="#e8a598" class="dw-hand dw-hand--left" />
+      <ellipse cx="351" cy="303" rx="7" ry="4.5" fill="#e8a598" class="dw-hand dw-hand--right" />
 
       <!-- ===== chair ===== -->
       <g class="dw-chair">
-        <path d="M138 362 Q130 312 144 282 Q178 268 212 282 Q226 312 218 362 Z" fill="url(#dw-chair)" stroke="#4a4478" stroke-width="1.5" />
-        <path d="M152 300 Q178 292 204 300" stroke="#7c6cff" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round" />
-        <path d="M150 326 Q178 318 206 326" stroke="#7c6cff" stroke-opacity="0.25" stroke-width="2" stroke-linecap="round" />
-        <rect x="172" y="360" width="12" height="18" rx="3" fill="#2d2a4a" />
-        <path d="M150 382 L206 382 M178 376 L160 388 M178 376 L196 388" stroke="#2d2a4a" stroke-width="5" stroke-linecap="round" />
-        <circle cx="150" cy="386" r="3.5" fill="#1c1a30" />
-        <circle cx="206" cy="386" r="3.5" fill="#1c1a30" />
-        <circle cx="160" cy="390" r="3.5" fill="#1c1a30" />
-        <circle cx="196" cy="390" r="3.5" fill="#1c1a30" />
+        <path d="M265 386 Q257 336 271 306 Q305 292 339 306 Q353 336 345 386 Z" fill="url(#dw-chair)" stroke="#4a4478" stroke-width="1.5" />
+        <path d="M279 324 Q305 316 331 324" stroke="#7c6cff" stroke-opacity="0.45" stroke-width="2" stroke-linecap="round" />
+        <path d="M277 350 Q305 342 333 350" stroke="#7c6cff" stroke-opacity="0.25" stroke-width="2" stroke-linecap="round" />
+        <rect x="299" y="384" width="12" height="16" rx="3" fill="#2d2a4a" />
+        <path d="M277 404 L333 404 M305 398 L287 410 M305 398 L323 410" stroke="#2d2a4a" stroke-width="5" stroke-linecap="round" />
+        <circle cx="277" cy="408" r="3.5" fill="#1c1a30" />
+        <circle cx="333" cy="408" r="3.5" fill="#1c1a30" />
+        <circle cx="287" cy="412" r="3.5" fill="#1c1a30" />
+        <circle cx="323" cy="412" r="3.5" fill="#1c1a30" />
       </g>
     </svg>
   </div>
