@@ -14,9 +14,12 @@ export const techStack = [
   { id: 'react', name: 'React', category: 'Frontend' },
   { id: 'nodejs', name: 'Node.js', category: 'Backend' },
   { id: 'mysql', name: 'MySQL', category: 'Database' },
-  { id: 'redis', name: 'Redis', category: 'Cache & Queue' },
+  { id: 'redis', name: 'Redis', category: 'Cache' },
+  { id: 'sqlite', name: 'SQLite', category: 'Database' },
   { id: 'aws', name: 'AWS', category: 'Cloud' },
   { id: 'docker', name: 'Docker', category: 'DevOps' },
+  { id: 'cicd', name: 'CI/CD', category: 'DevOps' },
+  { id: 'linux', name: 'Linux', category: 'Server' },
   { id: 'git', name: 'Git', category: 'Tools' },
 ]
 
@@ -34,19 +37,19 @@ export const expertise = [
     id: 'fullstack',
     title: 'Full Stack Development',
     description: 'End-to-end web apps — APIs, databases, admin panels, and polished frontends.',
-    level: 92,
+    level: 82,
   },
   {
     id: 'frontend',
     title: 'Frontend Development',
     description: 'Responsive UIs with Vue, React, animations, and pixel-perfect component systems.',
-    level: 82,
+    level: 80,
   },
   {
     id: 'backend',
     title: 'Backend & API Design',
     description: 'RESTful APIs, authentication, queues, and clean database schemas with Laravel and Node.js.',
-    level: 88,
+    level: 83,
   },
   {
     id: 'cloud',

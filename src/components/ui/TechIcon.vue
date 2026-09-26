@@ -78,6 +78,31 @@ defineProps({
       <path d="M8 32 H40" stroke="#2496ED" stroke-width="2" />
     </template>
 
+    <!-- SQLite -->
+    <template v-else-if="id === 'sqlite'">
+      <ellipse cx="24" cy="13" rx="13" ry="5" fill="#0F80CC" />
+      <path d="M11 13 V33 C11 36 17 39 24 39 C31 39 37 36 37 33 V13" fill="#0F80CC" opacity="0.45" />
+      <path d="M11 23 C11 26 17 29 24 29 C31 29 37 26 37 23" stroke="#44A8E6" stroke-width="1.5" />
+      <path d="M30 6 L34 22 L28 38" stroke="#7FCCFF" stroke-width="2.5" stroke-linecap="round" />
+    </template>
+
+    <!-- CI/CD -->
+    <template v-else-if="id === 'cicd'">
+      <path d="M17 24 C17 18 24 18 24 24 C24 30 31 30 31 24 C31 18 24 18 24 24 C24 30 17 30 17 24 Z" stroke="#34D399" stroke-width="2.5" fill="none" transform="translate(-7 0) scale(1.3 1.3) translate(-1 -5.5)" />
+      <path d="M36 16 L40 20 L36 24" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M12 24 L8 28 L12 32" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    </template>
+
+    <!-- Linux -->
+    <template v-else-if="id === 'linux'">
+      <ellipse cx="24" cy="27" rx="11" ry="14" fill="#1E1E28" stroke="#F2F2FA" stroke-opacity="0.5" />
+      <ellipse cx="24" cy="30" rx="7" ry="9" fill="#F2F2FA" />
+      <circle cx="20" cy="18" r="2.2" fill="#F2F2FA" /><circle cx="28" cy="18" r="2.2" fill="#F2F2FA" />
+      <circle cx="20.5" cy="18.3" r="1" fill="#1E1E28" /><circle cx="27.5" cy="18.3" r="1" fill="#1E1E28" />
+      <path d="M21 22 L24 24.5 L27 22 Z" fill="#FCC624" />
+      <ellipse cx="17" cy="41" rx="5" ry="2.5" fill="#FCC624" /><ellipse cx="31" cy="41" rx="5" ry="2.5" fill="#FCC624" />
+    </template>
+
     <!-- Git -->
     <template v-else-if="id === 'git'">
       <circle cx="24" cy="14" r="4" fill="#F05032" />
