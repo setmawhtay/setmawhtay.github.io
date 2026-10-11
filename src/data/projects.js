@@ -12,6 +12,15 @@
 /** @type {Project[]} */
 export const projects = [
   {
+    id: 'team-chat',
+    title: 'Team Chat',
+    category: 'Team Communication Platform',
+    description:
+      'Real-time team chat and video meeting platform with DMs, groups, channels, read receipts, LiveKit voice/video/screen share, role-based admin and three-language UI.',
+    tags: ['NestJS', 'React', 'PostgreSQL', 'Redis', 'LiveKit', 'Docker'],
+    image: '/images/projects/team-chat.webp',
+  },
+  {
     id: 'capital-knowledge',
     title: 'Capital Knowledge Myanmar',
     category: 'Corporate Landing Page',
