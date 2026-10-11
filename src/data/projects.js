@@ -12,6 +12,15 @@
 /** @type {Project[]} */
 export const projects = [
   {
+    id: 'portfolio-builder',
+    title: 'Portfolio Builder',
+    category: 'Multi-tenant Website Builder',
+    description:
+      'Multi-tenant portfolio website builder where users pick section templates and themes, edit with a live preview, claim a subdomain and publish. Includes automatic DNS and tunnel setup, visitor analytics, publish history with restore, an admin catalog and a three-language UI.',
+    tags: ['Next.js', 'React', 'TypeScript', 'Prisma', 'MySQL', 'Docker'],
+    image: '/images/projects/portfolio-builder.webp',
+  },
+  {
     id: 'team-chat',
     title: 'Team Chat',
     category: 'Team Communication Platform',
