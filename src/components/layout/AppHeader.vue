@@ -109,7 +109,7 @@ onUnmounted(() => {
       >
         <img
           class="app-header__logo-mark"
-          src="/images/profile.png"
+          src="/images/profile.webp"
           alt=""
           width="36"
           height="36"

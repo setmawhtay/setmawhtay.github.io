@@ -101,7 +101,7 @@ npm install
 | Tech stack & expertise | `src/data/techStack.js` |
 | Projects | `src/data/projects.js` |
 | Email / Telegram / GitHub | `src/data/social.js` |
-| Profile photo | `public/images/profile.png` |
+| Profile photo | `public/images/profile.webp` |
 | Project thumbnails | `public/images/projects/` |
 | Site title & meta | `index.html` |
 | Colors & spacing | `src/assets/styles/tokens.css` |

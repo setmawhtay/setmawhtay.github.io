@@ -17,7 +17,7 @@
     <div class="profile-frame__image-wrap">
       <img
         class="profile-frame__image"
-        src="/images/profile.png"
+        src="/images/profile.webp"
         alt="Set Maw Htay — Full Stack Developer"
         width="320"
         height="320"
